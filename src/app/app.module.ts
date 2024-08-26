@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AvailabilityLayoutComponent } from './availability-layout/availability-layout.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AvailabilityLayoutComponent } from './availability-layout/availability-
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    AvailabilityLayoutComponent
+    AvailabilityLayoutComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
