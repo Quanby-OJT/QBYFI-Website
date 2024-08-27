@@ -1,0 +1,158 @@
+<app-header class="z-10 fixed top-0 left-0 w-full"></app-header>
+<div class="flex flex-col rounded-none pt-[91px]"></div>
+<h2 class="flex flex-col font-semibold text-black rounded-none">
+  <div
+    class="flex relative flex-col justify-center items-center px-20 py-7 w-full min-h-[196px] max-md:px-5 max-md:max-w-full"
+  >
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/e0a7e002d0c80b00eaff3532a8fca84f20932d94ac35c2fc5fe51719b258df1f?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+      alt=""
+      class="object-cover absolute inset-0 size-full"
+    />
+    <div class="flex relative flex-col items-center max-w-full w-[325px]">
+      <h1 class="text-3xl font-black">CONTACT US</h1>
+      <p class="mt-3 text-xl">Looking for Something?</p>
+      <form
+        class="flex flex-col justify-center self-stretch px-1.5 py-1 mt-5 w-full text-base whitespace-nowrap bg-white rounded-[36px] text-black text-opacity-50"
+      >
+        <div
+          class="flex gap-5 justify-between px-6 py-2 rounded-3xl bg-zinc-300 max-md:pl-5"
+        >
+          <label for="searchInput" class="sr-only">Search</label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search"
+            class="bg-transparent border-none outline-none flex-grow"
+          />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d0d4adb73ec7c947e306ebc5d4437968a14329255883bc3aa72ca2ed4f33914f?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+            alt="Search icon"
+            class="object-contain shrink-0 aspect-[1.29] w-[31px]"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</h2>
+<div>
+  <div class="flex flex-col rounded-none">
+    <div class="flex flex-row justify-between max-w-[1203px] mx-auto">
+      <div class="flex flex-col w-full mt-12 max-w-[539px] mr-10">
+        <div class="gap-2.5 self-start p-2.5 text-2xl font-semibold text-black">
+          Get in Touch
+        </div>
+        <div class="flex flex-col self-center mt-6 w-full text-xl text-black whitespace-nowrap font-[275] max-w-[518px] max-md:max-w-full">
+          <div class="flex flex-col w-full border border-solid border-black border-opacity-50">
+            <input
+              type="text"
+              class="px-12 py-4 bg-white rounded-md max-md:px-5 max-md:max-w-full"
+              placeholder="Name"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col self-center mt-4 w-full text-lg text-black whitespace-nowrap font-[275] max-w-[518px] max-md:max-w-full">
+          <div class="flex flex-col w-full border border-solid border-black border-opacity-50">
+            <input
+              type="email"
+              class="px-12 py-4 bg-white rounded-md max-md:px-5 max-md:max-w-full"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col self-center mt-6 w-full text-xl text-black whitespace-nowrap font-[275] max-w-[518px] max-md:max-w-full">
+            <div class="relative">
+              <textarea
+                class="flex z-10 flex-col items-start self-start px-12 py-4 text-black bg-white border border-solid border-black border-opacity-50 font-[250] min-h-[224px] w-full max-md:pb-24 max-md:max-w-full resize-y rounded-none"
+                placeholder="Tell us about your project"
+              ></textarea>
+              <div class="absolute inset-0 mt-4">
+              </div>
+            </div>
+          <div class="flex z-10 flex-wrap gap-10 items-start w-full text-base text-black font-[250] max-md:max-w-full mt-2">
+            <div class="flex flex-auto gap-1 items-start mt-2.5">
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                (change)="onFileSelected($event)"
+                class="hidden"
+              />
+              <label for="file-input" class="flex gap-1 items-center cursor-pointer">
+                <img
+                  loading="lazy"
+                  srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/4a603ede549f6f5ecef020476e0e1ac419e57fe67a949c8cf716b4949b7e95e3?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=2000 2000w"
+                  class="object-contain shrink-0 aspect-square w-[15px]"
+                />
+                <div class="w-[331px]">Attach Files</div>
+              </label>
+            </div>
+            <div class="gap-2.5 self-stretch p-2.5">
+              <div>Attachments ({{ attachedFiles.length }})</div>
+              <ul>
+                <li *ngFor="let file of attachedFiles" class="text-blue-600 cursor-pointer" (click)="viewFile(file)">
+                  {{ file.name }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="gap-2.5 self-start p-2.5 text-xs text-center text-black font-[250] max-md:max-w-full">
+            This site is protected by reCAPTCHA and the Google
+            <a href="https://policies.google.com/privacy" class="underline" target="_blank">
+              Privacy Policy
+            </a>
+            and
+            <a href="https://policies.google.com/terms" class="underline" target="_blank">
+              Terms of Service
+            </a>
+            <br />
+            apply.
+          </div>
+          <div class="flex gap-5 self-center mt-6 max-w-full whitespace-nowrap w-[238px]">
+            <button class="gap-2.5 self-stretch px-7 py-1.5 text-white font-semibold bg-pink-600 min-h-[39px] rounded-[50px] max-md:px-5 hover:bg-pink-800" (click)="openModal()">
+              Send
+            </button>
+            <button class="gap-2.5 self-stretch px-5 py-1.5 text-black border border-black border-solid bg-neutral-200 font-[250] min-h-[39px] rounded-[50px] hover:bg-red-500" (click)="navigateToHeaderContact()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+      <section class="flex flex-col items-end rounded-3xl mt-16 max-w-[650px]">
+        <h2 class="text-2xl font-semibold text-black self-center">Visit Us</h2>
+        <figure class="flex overflow-hidden flex-col mt-3 w-full rounded- border border-black border-solid">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.2492488922335!2d123.7455191740535!3d13.146671811017821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a1017e4744c56d%3A0x3e7b3ae506209c7e!2sF.%20Imperial%20St%2C%20Legazpi%20City%2C%20Albay!5e0!3m2!1sen!2sph!4v1723522935500!5m2!1sen!2sph"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </figure>
+      </section>
+    </div>
+  </div>
+  <div>
+    <div class="flex flex-col rounded-none">
+      <div class="flex flex-row justify-between max-w-[1203px] mx-auto">
+        <div *ngIf="isModalOpen" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+          <div class="bg-white p-8 rounded-md shadow-lg max-w-sm w-full">
+            <h2 class="text-lg font-semibold mb-4">Thank you</h2>
+            <p>Your message has been sent successfully!</p>
+            <div class="flex justify-center mt-4">
+              <button (click)="closeModal()" class="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-800">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <app-footer></app-footer>
