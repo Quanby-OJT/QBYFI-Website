@@ -10,6 +10,9 @@ import { TechnologicalinnovationComponent } from './technologicalinnovation/tech
 import { BroadbandaccessComponent } from './broadbandaccess/broadbandaccess.component';
 import { RegulatorycomplianceComponent } from './regulatorycompliance/regulatorycompliance.component';
 import { CustomersupportComponent } from './customersupport/customersupport.component';
+import { LoadingComponent } from './loading/loading.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -23,6 +26,10 @@ const routes: Routes = [
   {path: 'broadbandaccess', component: BroadbandaccessComponent},
   {path: 'regulatorycompliance', component: RegulatorycomplianceComponent},
   {path: 'customersupport', component: CustomersupportComponent},
+  {path: 'loading', component: LoadingComponent},
+  {path: 'feedback', component: FeedbackComponent},
+  {path: 'location-availability', component: LocationAvailabilityComponent},
+  // Define routes for other components 
   { path: '**', redirectTo: '/landing-page' } // Default route
 ];
 
