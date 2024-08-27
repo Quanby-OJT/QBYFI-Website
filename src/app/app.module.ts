@@ -8,7 +8,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AvailabilityLayoutComponent } from './availability-layout/availability-layout.component';
 import { ModalComponent } from './modal/modal.component';
 import { HeaderlogComponent } from './headerlog/headerlog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    AvailabilityLayoutComponent,
     ModalComponent,
     HeaderlogComponent
   ],
