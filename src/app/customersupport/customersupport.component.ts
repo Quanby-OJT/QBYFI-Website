@@ -97,6 +97,6 @@ export class CustomersupportComponent {
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/support-page']); 
-    }, 2000); 
+    }, 500); 
   }
 }

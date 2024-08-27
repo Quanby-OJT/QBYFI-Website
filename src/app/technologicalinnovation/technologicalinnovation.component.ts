@@ -96,6 +96,6 @@ export class TechnologicalinnovationComponent {
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/support-page']); 
-    }, 2000); 
+    }, 500); 
   }
 }

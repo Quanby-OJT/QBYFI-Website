@@ -43,7 +43,7 @@ export class SupportPageComponent {
       this.isLoading = false;
       const route = this.getRouteForTopic(topic);
     this.router.navigate([route]); 
-    }, 2000); 
+    }, 500); 
   }
 
   onLearnMore(link: string) {
@@ -52,7 +52,7 @@ export class SupportPageComponent {
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate([link]);
-    }, 2000); // 2 seconds delay for demonstration
+    }, 500); // 2 seconds delay for demonstration
   }
 
   getRouteForTopic(topic: string): string {
