@@ -49,12 +49,6 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     FeedbackComponent,
     LocationAvailabilityComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-  ],
   providers: [
     provideClientHydration()
   ],
