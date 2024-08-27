@@ -17,6 +17,7 @@ import { NetworkinfastructureComponent } from './networkinfastructure/networkinf
 import { RegulatorycomplianceComponent } from './regulatorycompliance/regulatorycompliance.component';
 import { TechnologicalinnovationComponent } from './technologicalinnovation/technologicalinnovation.component';
 import { DatasecurityandprivacyComponent } from './datasecurityandprivacy/datasecurityandprivacy.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DatasecurityandprivacyComponent } from './datasecurityandprivacy/datase
     NetworkinfastructureComponent,
     RegulatorycomplianceComponent,
     TechnologicalinnovationComponent,
-    DatasecurityandprivacyComponent
+    DatasecurityandprivacyComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

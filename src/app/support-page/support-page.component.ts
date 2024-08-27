@@ -20,6 +20,7 @@ interface SetupStep {
   styleUrl: './support-page.component.css'
 })
 export class SupportPageComponent {
+  isLoading = false;
   topConversationTopics: string[] = [
     "What is QBYFI Internet Technology",
     "How do I pay my bill?",
@@ -34,10 +35,24 @@ export class SupportPageComponent {
 
   constructor(private router: Router) {}
 
+  
+
   onTopicClick(topic: string) {
-    // Assuming you have routes configured for each topic
-    const route = this.getRouteForTopic(topic);
-    this.router.navigate([route]);
+    this.isLoading = true; 
+    setTimeout(() => {
+      this.isLoading = false;
+      const route = this.getRouteForTopic(topic);
+    this.router.navigate([route]); 
+    }, 2000); 
+  }
+
+  onLearnMore(link: string) {
+    this.isLoading = true;
+    // Simulate loading time (e.g., API call, delay for UX)
+    setTimeout(() => {
+      this.isLoading = false;
+      this.router.navigate([link]);
+    }, 2000); // 2 seconds delay for demonstration
   }
 
   getRouteForTopic(topic: string): string {
@@ -158,4 +173,5 @@ export class SupportPageComponent {
     this.searchQuery = '';
     this.searchSuggestions = [];
   }
+  
 }

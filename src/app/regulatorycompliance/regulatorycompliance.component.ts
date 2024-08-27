@@ -14,6 +14,7 @@ interface HelpTopic {
 })
 export class RegulatorycomplianceComponent {
   searchQuery: string = '';
+  isLoading = false;
   searchSuggestions: HelpTopic[] = [];
 
   helpTopics: HelpTopic[] = [
@@ -89,5 +90,12 @@ export class RegulatorycomplianceComponent {
   clearSearch(): void {
     this.searchQuery = '';
     this.searchSuggestions = [];
+  }
+  onSupportClick() {
+    this.isLoading = true; 
+    setTimeout(() => {
+      this.isLoading = false;
+      this.router.navigate(['/support-page']); 
+    }, 2000); 
   }
 }

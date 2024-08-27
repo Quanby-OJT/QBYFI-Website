@@ -15,6 +15,7 @@ interface HelpTopic {
 
 export class CustomersupportComponent {
   searchQuery: string = '';
+  isLoading = false;
   searchSuggestions: HelpTopic[] = [];
 
   helpTopics: HelpTopic[] = [
@@ -90,5 +91,12 @@ export class CustomersupportComponent {
   clearSearch(): void {
     this.searchQuery = '';
     this.searchSuggestions = [];
+  }
+  onSupportClick() {
+    this.isLoading = true; 
+    setTimeout(() => {
+      this.isLoading = false;
+      this.router.navigate(['/support-page']); 
+    }, 2000); 
   }
 }
