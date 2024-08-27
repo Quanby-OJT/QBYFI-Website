@@ -42,84 +42,84 @@ export class HeaderComponent {
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/login']); 
-    }, 2000); 
+    }, 500); 
   }
   onRegisterClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/register']); 
-    }, 2000); 
+    }, 500); 
   }
   onResidentialClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/residential']); 
-    }, 2000); 
+    }, 500); 
   }
   onProductsClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/products']); 
-    }, 2000); 
+    }, 500); 
   }
   onContactUsClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/contact-us']); 
-    }, 2000); 
+    }, 500); 
   }
   onSupportPageClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/support-page']); 
-    }, 2000); 
+    }, 500); 
   }
   onLocationAvailabilityClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/location-availability']); 
-    }, 2000); 
+    }, 500); 
   }
   onAboutUsClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/about-us']); 
-    }, 2000); 
+    }, 500); 
   }
   onSubscribeClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/subscribe']); 
-    }, 2000); 
+    }, 500); 
   }
   onCustomerServiceClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/customer-service']); 
-    }, 2000); 
+    }, 500); 
   }
   onFeedbackClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/feedback']); 
-    }, 2000); 
+    }, 500); 
   }
   onLandingPageClick() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/landing-page']); 
-    }, 2000); 
+    }, 500); 
   }
 }
 

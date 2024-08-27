@@ -39,13 +39,6 @@ export class LandingPageComponent implements OnInit {
   toggleSections() {
     this.isSupportSectionVisible = !this.isSupportSectionVisible;
   }
-//show feedback
-  /*scrollToFeedback() {
-    const feedbackSection = document.getElementById('feedbackSection');
-    if (feedbackSection) {
-      feedbackSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }*/
 
   toggleAndScrollToFeedback(button: string) {
     this.activeButton = button;
@@ -130,7 +123,7 @@ export class LandingPageComponent implements OnInit {
     setTimeout(() => {
       this.isLoading = false;
       this.router.navigate(['/availability-step1']); 
-    }, 1000); 
+    }, 500); 
   }
 
   //fetch plans
