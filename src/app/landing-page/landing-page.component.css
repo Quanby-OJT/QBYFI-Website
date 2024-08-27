@@ -2,4 +2,64 @@
 @import "boxicons/css/boxicons.min.css";
 
 
+ 
+@keyframes slideLeftFadeIn {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-left-fade-in {
+    animation: slideLeftFadeIn 1s ease-out forwards;
+  }
+  
+  @keyframes slideRightFadeIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-right-fade-in {
+    animation: slideRightFadeIn 5s ease forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+  
+  .fade-out {
+    animation: fadeOut 1s ease forwards;
+  }
+  
+  @keyframes clickAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-click {
+    animation: clickAnimation 0.2s ease;
+  }
   

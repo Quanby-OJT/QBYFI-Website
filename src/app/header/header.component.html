@@ -1,36 +1,54 @@
-<!-- header.component.html-->
+<app-loading *ngIf="isLoading"></app-loading>
 <div [class.blur]="isMenuOpen" class="relative transition duration-500 ease-in-out" [ngClass]="{'blur-sm': isMenuOpen}">
     <div class="w-full h-3 bg-violet-950"></div>
-    <header class="w-full h-20 top-0 left-0 relative border border-gray-300 flex items-center justify-between px-6 md:px-10 shadow-lg bg-white/30">
-        <a href=""><img class="w-16 md:w-20" src="assets/images/LOGO.png" alt="logo"></a>
-        <ul class="hidden md:flex space-x-8 ml-auto mr-8">
-            <li><a href="" class="font-['Poppins'] hover:text-violet-700">RESIDENTIAL</a></li>
-            <li><a href="" class="font-['Poppins'] hover:text-violet-700">PRODUCTS</a></li>
-            <li><a href="" class="font-['Poppins'] hover:text-violet-700">CONTACT US</a></li>
+    <header [ngClass]="{'shadow-lg border border-gray-300': !isLoginPage}" class="w-full h-20 top-0 left-0 relative border border-gray-300 flex items-center justify-between px-6 md:px-10 shadow-lg bg-white/30">
+        <a (click)="onLandingPageClick()"><img class="w-16 md:w-20" src="assets/images/LOGO.png" alt="logo"></a>
+        <ul class="hidden md:flex space-x-8 ml-auto mr-8" *ngIf="shouldShowSignIn()">
+            <!--<li><a (click)="onResidentialClick()" class="font-['Poppins'] hover:text-violet-700">RESIDENTIAL</a></li>-->
+            <li><a (click)="onProductsClick()" class="font-['Poppins'] hover:text-violet-700">PRODUCTS</a></li>
+            <li><a (click)="onContactUsClick()" class="font-['Poppins'] hover:text-violet-700">CONTACT US</a></li>
         </ul>
         <i class="bx bx-menu text-3xl cursor-pointer md:hidden" (click)="toggleMenu()"></i>
     </header>
 </div>
 
 <div [class.hidden]="!isMenuOpen" 
-     [ngClass]="{'transform translate-x-full': !isMenuOpen, 'transform translate-x-0': isMenuOpen}"
-     class=" fixed right-0 w-64 h-auto bg-pink-600 text-white p-6 z-50 rounded-tl-md rounded-bl-md top-3 shadow-lg transition-transform duration-[3000ms] ease-in-out">
+     [ngClass]="{'transform translate-x-full fade-out': !isMenuOpen, 'transform translate-x-0 slide-left-fade-in': isMenuOpen}"
+     class="fixed right-0 w-64 h-auto bg-pink-600 text-white p-6 z-50 rounded-tl-md rounded-bl-md top-3 shadow-lg transition-transform duration-[3000ms] ease-in-out">
     <div class="h-5">
         <i class="bx bx-x text-3xl cursor-pointer absolute top-4 right-4 mb-10" (click)="toggleMenu()"></i>
     </div>
     <ul class="space-y-4">
         
-        <li><a routerLink="/login" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SIGN IN</a></li>
-        <li><a routerLink="/register" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">REGISTER</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">RESIDENTIAL</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">PRODUCTS</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">CONTACT US</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SUPPORT</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">AVAILABILITY MAP</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">ABOUT US</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SUBSCRIBE</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">CUSTOMER SERVICE</a></li>
-        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">FEEDBACK</a></li>
+        <li *ngIf="shouldShowSignIn()">
+            <a (click)="onLoginClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">
+                SIGN IN
+            </a>
+        </li>
+        <li>
+            <a (click)="onRegisterClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">
+                REGISTER
+            </a>
+        </li>
+        
+        <!--<li >
+            <a (click)="onResidentialClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">
+                RESIDENTIAL
+            </a>
+        </li>
+        <li >
+            <a (click)="onProductsClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">
+                PRODUCTS
+            </a>
+        </li>-->
+        <li><a (click)="onContactUsClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">CONTACT US</a></li>
+
+        <li><a (click)="onSupportPageClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SUPPORT</a></li>
+        <li><a (click)="onLocationAvailabilityClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">AVAILABILITY MAP</a></li>
+        <li><a (click)="onAboutUsClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">ABOUT US</a></li>
+        <!--<li><a (click)="onSubscribeClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SUBSCRIBE</a></li>
+        <li><a (click)="onCustomerServiceClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">CUSTOMER SERVICE</a></li>
+        <li><a (click)="onFeedbackClick()" (click)="toggleMenu()" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">FEEDBACK</a></li>-->
     </ul>
 </div>
 
