@@ -26,7 +26,7 @@ export class LoginComponent {
       const { success, message } = await this.supabaseService.login(this.email, this.password);
       if (success) {
         localStorage.setItem('user', JSON.stringify({ email: this.email }));
-        this.router.navigate(['/logged-in']);
+        this.router.navigate(['/dashboard']);
       } else {
         this.errorMessage = message;
       }
