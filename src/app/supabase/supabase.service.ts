@@ -10,6 +10,8 @@ interface MarkerData {
   latitude: number;
   longitude: number;
   // Add other fields as needed
+}
+
 @Injectable({
   providedIn: 'root'
 })
