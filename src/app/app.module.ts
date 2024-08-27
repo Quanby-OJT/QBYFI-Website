@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +16,7 @@ import { TechnologicalinnovationComponent } from './technologicalinnovation/tech
 import { DatasecurityandprivacyComponent } from './datasecurityandprivacy/datasecurityandprivacy.component';
 import { LoadingComponent } from './loading/loading.component';
 import { HeaderlogComponent } from './headerlog/headerlog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
@@ -29,6 +29,7 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    ModalComponent,
     SupportPageComponent,
     BroadbandaccessComponent,
     CustomersupportComponent,
@@ -47,6 +48,12 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     LoadingComponent,
     FeedbackComponent,
     LocationAvailabilityComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration()

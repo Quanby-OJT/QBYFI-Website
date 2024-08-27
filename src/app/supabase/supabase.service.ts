@@ -9,7 +9,6 @@ const supabaseClient: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 interface MarkerData {
   latitude: number;
   longitude: number;
-  // Add other fields as needed
 }
 
 @Injectable({
@@ -43,26 +42,27 @@ export class SupabaseService {
       return { success: false, message: 'An unexpected error occurred. Please try again later.' };
     }
   }
-  async saveData(formData: any) {
+  async saveAccountData(formData: any) {
     try {
       const { data: insertData, error: insertError } = await supabaseClient
-        .from('Register')
+        .from('accounts') 
         .insert([
-          { 
+          {
             email: formData.email,
             firstName: formData.firstName,
             middleName: formData.middleName,
             lastName: formData.lastName,
-            subnum: formData.subnum
+            subnum: formData.subnum,
+            password: formData.password
           }
         ]);
 
       if (insertError) {
-        console.error('Error during data insertion:', insertError);
+        console.error('Error during account data insertion:', insertError);
         throw new Error(insertError.message);
       }
 
-      console.log('Data inserted successfully:', insertData);
+      console.log('Account data inserted successfully:', insertData);
       return insertData;
     } catch (error) {
       console.error('Unexpected error:', error);
