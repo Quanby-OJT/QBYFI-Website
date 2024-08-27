@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AvailabilityLayoutComponent } from './availability-layout/availability-layout.component';
+import { HeaderlogComponent } from './headerlog/headerlog.component';
+import { ModalComponent } from './modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,13 @@ import { AvailabilityLayoutComponent } from './availability-layout/availability-
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    AvailabilityLayoutComponent
+    AvailabilityLayoutComponent,
+    HeaderlogComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [
