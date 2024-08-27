@@ -98,7 +98,7 @@ async getMarkerData(): Promise<any[]> {
   try {
     const { data, error } = await supabaseClient
       .from('search_area')
-      .select('lat, lng'); // Select lat and lng columns
+      .select('lat, lng, full_address'); // Select lat and lng columns
   
     if (error) {
       console.error('Error fetching marker data:', error);

@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { AvailabilityLayoutComponent } from './availability-layout/availability-layout.component';
 import { LoadingComponent } from './loading/loading.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     AvailabilityLayoutComponent,
     LoadingComponent,
     FeedbackComponent,
+    LocationAvailabilityComponent,
   ],
   imports: [
     BrowserModule,
