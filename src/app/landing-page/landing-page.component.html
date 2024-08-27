@@ -1,5 +1,8 @@
-<app-loading *ngIf="isLoading"></app-loading>
-<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
+<!-- Conditionally render the feedback component centered -->
+  <app-feedback *ngIf="showFeedback" class="z-50"></app-feedback>
+
+<app-loading *ngIf="isLoading" class="z-50"></app-loading>
+<app-header class="fixed top-0 left-0 w-full z-10"></app-header>
 
 <div  [class.blur]="isMenuOpen" class="font-['Poppins']">
   <div class="bg-[url('assets/images/bglanding.png')] bg-cover bg-no-repeat w-full h-full pt-20 flex flex-col items-center">
@@ -90,7 +93,7 @@
           <h1 class="text-6xl font-black text-center text-rose-500 max-md:text-4xl">PLANS</h1>
           <p class="self-stretch max-md:text-4xl">EXPERIENCE INTERNET BLISS WITH QBYFI!</p>
         </header>
-        <a href="#plans" class="flex flex-col mt-3.5 max-w-full text-xl font-bold text-center text-white rounded-[100px] w-[200px]">
+        <a routerLink="subscription-plan" class="flex flex-col mt-3.5 max-w-full text-xl font-bold text-center text-white rounded-[100px] w-[200px]">
           <span class="px-5 py-5 bg-rose-500 rounded-[100px] max-md:px-5 hover:bg-violet-950">VIEW PLANS</span>
         </a>
       </div>
@@ -209,8 +212,20 @@
       How can we help you today?
     </h2>
     <nav class="flex gap-6 justify-center items-center self-center mt-1 text-xl">
-      <a href="#account" class="gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-white bg-rose-500 rounded-3xl min-h-[40px] w-[150px]" role="button">My Account</a>
-      <a routerLink="/support-page" class="self-stretch my-auto text-rose-500">Support</a>
+      <!-- My Account Button -->
+<a (click)="toggleAndScrollToFeedback('account')" 
+[ngClass]="activeButton === 'account' ? 'gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-white bg-rose-500 hover:bg-violet-950 rounded-3xl min-h-[40px] w-[150px]' : 'gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-rose-500 bg-transparent rounded-3xl min-h-[40px] w-[150px]'" 
+role="button">
+My Account
+</a>
+
+<!-- Support Button -->
+<a (click)="toggleAndScrollToFeedback('support')" 
+[ngClass]="activeButton === 'support' ? 'text-center gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-white bg-rose-500 hover:bg-violet-950 rounded-3xl min-h-[40px] w-[150px]' : 'font-semibold self-stretch my-auto text-rose-500'" 
+role="button">
+Support
+</a>
+
     </nav>
   </div>
   <div id="accountSection" class="flex flex-col mt-10" [ngClass]="{'hidden': isSupportSectionVisible, 'slide-left-fade-in': !isSupportSectionVisible}">
@@ -245,9 +260,9 @@
               </div>
             </div>
           </div>
-          <button class="mt-12 max-w-full text-md font-semibold text-center text-white rounded-[100px] w-[150px] px-10 py-2.5 bg-violet-950 max-md:mt-10 max-md:px-5">
+          <a routerLink="login" class="mt-12 max-w-full text-md font-semibold text-center text-white rounded-[100px] w-[150px] px-10 py-2.5 bg-violet-950 hover:bg-rose-500 max-md:mt-10 max-md:px-5">
             Sign In
-          </button>
+          </a>
         </div>
         <div class="h-[500px] pl-5 overflow-hidden">
           <div class="flex flex-col justify-center items-center bg-white border border-solid border-violet-950 max-w-[500px] shadow-[10px_10px_1px_rgba(199,6,85,1)] h-60">
@@ -286,40 +301,6 @@
         <a class="mt-7 px-10 py-2.5 max-w-full text-xl font-semibold text-center text-rose-500 whitespace-nowrap rounded-[100px] w-[150px] border border-rose-500 border-solid bg-violet-950 bg-opacity-0 max-md:px-5 hover:bg-rose-500 hover:text-white hover:border-white hover:border-solid">
           Create
         </a>
-      </div>
-    </div>
-    <div class="flex flex-col w-full max-md:max-w-full h-10 bg-neutral-200"></div>
-    <div class="flex flex-col w-full max-md:max-w-full">
-      <div class="flex flex-col justify-center items-center px-20 py-16 w-full bg-rose-500 min-h-[200px] max-md:px-5 max-md:max-w-full">
-        <div class="flex flex-wrap gap-10 items-center max-md:max-w-full">
-          <form class="flex flex-wrap gap-9 items-center self-stretch my-auto min-w-[240px] max-md:max-w-full">
-            <div class="relative flex flex-col self-stretch my-auto min-w-[240px] w-[350px]">
-              <div class="flex relative gap-5 justify-between items-start px-5 py-3.5 w-full min-h-[55px]">
-                <div class="flex absolute right-0 bottom-0 z-0 flex-col self-start min-w-[240px] w-[350px]">
-                  <div class="flex flex-col w-full">
-                    <div class="flex w-full bg-white border-rose-500 border-solid border-[3px] min-h-[55px] rounded-[50px]"></div>
-                  </div>
-                </div>
-                <div class="relative w-full">
-                  <label for="emailInput" class="absolute left-5 transform text-xl font-medium text-white -inset-10">
-                    EMAIL
-                  </label>
-                  <input type="email" id="emailInput" name="email" required class="relative z-10 w-full px-4 text-base text-gray-700 bg-transparent border-none outline-none focus:placeholder-transparent" placeholder="Enter your email">
-                </div>
-              </div>
-            </div>
-            <button type="submit" class="flex relative gap-2 items-center self-stretch px-8 py-3 my-auto min-h-[55px] w-[200px] max-md:px-5">
-              <div class="flex absolute right-0 bottom-0 z-0 flex-col self-start h-[55px] rounded-[50px] w-[200px]">
-                <div class="flex shrink-0 bg-violet-950 h-[55px] rounded-[50px]"></div>
-              </div>
-              <span class="z-10 self-stretch my-auto text-xl font-medium text-white w-[101px]">Subscribe</span>
-              <i class='bx bx-envelope z-10 self-stretch my-auto text-2xl font-medium text-white'></i>
-            </button>
-          </form>  
-          <h2 class="self-stretch my-auto text-2xl font-extrabold text-white max-md:max-w-full">
-            Get exclusive deals by signing up to our <br /> Newsletter.
-          </h2>
-        </div>
       </div>
     </div>
   </div>
@@ -450,7 +431,7 @@
         </div>
       </section>
     </section>
-    <button (click)="toggleAndScrollToFeedback()">
+    <button (click)="toggleFeedback()">
       <div class="fixed right-0 bottom-10 z-20 flex flex-col justify-center bg-rose-500 h-40 w-[30px] rounded-tl-md rounded-bl-md shadow-[0px_4px_15px_rgba(58,25,81,1)]">
         <img src="assets/images/comment.png" alt="Comment Icon" class="w-5 h-5 ml-2 mb-16">
         <p class="text-white text-sm -rotate-90">FEEDBACK</p>

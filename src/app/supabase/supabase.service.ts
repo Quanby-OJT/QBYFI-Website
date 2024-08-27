@@ -112,4 +112,25 @@ async getMarkerData(): Promise<any[]> {
   }
 }
 
+async submitFeedback(feedbackData: { name: string, contact: string, email: string, experience: string, rating: number, feedback: string }) {
+  const { data, error } = await supabaseClient
+    .from('feedback_rating')
+    .insert([
+      {
+        name: feedbackData.name,
+        contact: feedbackData.contact,
+        email: feedbackData.email,
+        experience: feedbackData.experience,
+        rating: feedbackData.rating,
+        feedback: feedbackData.feedback
+      }
+    ]);
+
+  if (error) {
+    console.error('Error inserting feedback:', error);
+    return { success: false, message: error.message };
+  }
+
+  return { success: true, data };
+}
 }

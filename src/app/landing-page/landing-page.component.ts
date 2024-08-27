@@ -19,6 +19,9 @@ export class LandingPageComponent implements OnInit {
   subscriptionDetails: any;
   isSubmitting = false;
   isLoading = false;
+  isSupportClicked: boolean = false;
+  activeButton: string = '';
+  showFeedback = false;
 
   constructor(
     private menuService: MenuService,
@@ -37,18 +40,20 @@ export class LandingPageComponent implements OnInit {
     this.isSupportSectionVisible = !this.isSupportSectionVisible;
   }
 //show feedback
-  scrollToFeedback() {
+  /*scrollToFeedback() {
     const feedbackSection = document.getElementById('feedbackSection');
     if (feedbackSection) {
       feedbackSection.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  }*/
 
-  toggleAndScrollToFeedback() {
+  toggleAndScrollToFeedback(button: string) {
+    this.activeButton = button;
+    this.isSupportClicked = true;
     this.toggleSections();
-    this.scrollToFeedback();
+    //this.scrollToFeedback();
   }
-
+  
   //fetching full address
   async onSearchInput(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -136,6 +141,9 @@ export class LandingPageComponent implements OnInit {
       console.error('Error fetching plans:', error);
     });
   }
-
   
+  //show feedback
+  toggleFeedback(): void {
+    this.showFeedback = !this.showFeedback;
+  }
 }
