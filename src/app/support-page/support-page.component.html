@@ -1,0 +1,118 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
+
+<main class="flex relative flex-col items-center pt-32 pb-10 font-semibold text-black min-h-[391px] px-[499px] shadow-[0px_4px_10px_rgba(0,0,0,0.25)] max-md:px-5 max-md:pt-24">
+    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/83d86dfa56df76b3918743b85afff17c339483dd4845048ce191fe42a6071ebc?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-cover absolute inset-0 size-full" />
+    <section class="flex relative flex-col max-w-full w-[441px]">
+      <div class="flex flex-col items-center w-full max-md:max-w-full">
+        <h1 class="flex items-center gap-2.5 text-6xl font-black max-md:max-w-full max-md:text-4xl">
+          QBYFI <span >SUPPORT</span>
+        </h1>
+        <p class="self-stretch mt-8 text-xl text-center font-semibold">
+          Looking for Something?
+        </p>
+        <form (ngSubmit)="onSearch($event)" class="flex flex-col mt-8 max-w-full text-base whitespace-nowrap rounded-[36px] text-black text-opacity-50 w-full relative">
+  <div class="flex justify-center px-1.5 py-1 w-full bg-white min-h-[45px] rounded-[36px]">
+    <div class="flex gap-2 justify-between items-center px-5 py-2 w-full rounded-3xl bg-zinc-300 min-h-[39px]">
+      <label for="searchInput" class="sr-only">Search</label>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search"
+        [(ngModel)]="searchQuery"
+        (input)="onSearchInput()"
+        name="search"
+        class="flex-grow bg-transparent border-none outline-none"
+      />
+      <button type="submit" aria-label="Submit search">
+        <img loading="lazy" src="assets/images/sr-sp.png" alt="" class="object-contain shrink-0 self-stretch my-auto aspect-[1.29] w-[31px]" />
+      </button>
+    </div>
+  </div>
+  
+  <!-- Search Suggestions -->
+  <div *ngIf="searchSuggestions.length > 0" class="absolute top-full left-0 w-full bg-white mt-1 rounded-md shadow-lg z-10 max-h-60 overflow-y-auto">
+    <ul class="py-2">
+      <li *ngFor="let suggestion of searchSuggestions" 
+          class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          (click)="selectSuggestion(suggestion)">
+        <h4 class="font-semibold text-sm">{{ suggestion.title }}</h4>
+        <p class="text-xs text-gray-600 truncate">{{ suggestion.description }}</p>
+      </li>
+    </ul>
+  </div>
+</form>
+      </div>
+    </section>
+  </main>
+
+  <section class="flex flex-col text-center max-w-[681px] mx-auto mt-10">
+    <h2 class="text-3xl font-black text-pink-700 max-md:max-w-full">
+      Top Conversation
+    </h2>
+    <nav class="flex flex-wrap justify-center gap-3.5 items-start mt-5 w-full text-xs font-light text-black max-md:max-w-full">
+      <button
+        *ngFor="let topic of topConversationTopics"
+        class="grow shrink gap-2.5 self-stretch px-2 py-3.5 rounded-xl border-2 border-pink-700 border-solid bg-zinc-300 bg-opacity-0 min-h-[43px] w-[161px]"
+        (click)="onTopicClick(topic)"
+      >
+        {{ topic }}
+      </button>
+    </nav>
+  </section>
+
+  <section class="flex flex-col px-64 py-11 font-light text-black max-md:px-5 bg-[#EBEBEB] mt-10">
+    <h1 class="text-2xl font-black text-pink-700 ml-60">
+      How can we help you today?
+    </h1>
+    <p class="mt-2 text-sm max-md:max-w-full ml-60">
+      Please choose one of the topics listed below, and we'll find the most suitable solution.
+    </p>
+    <div class="flex flex-wrap gap-6 justify-center items-start mt-2 w-full text-xs max-w-[936px] mx-auto">
+      <article *ngFor="let topic of helpTopics" class="flex grow shrink gap-3 justify-between items-center w-52 min-w-[240px]">
+        <img [src]="topic.imageSrc" [alt]="topic.title + ' icon'" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[50px]" />
+        <div class="flex flex-col self-stretch my-auto w-[198px]">
+          <h2 class="text-sm font-semibold">{{ topic.title }}</h2>
+          <p>{{ topic.description }}</p>
+          <a (click)="onLearnMore(topic.link)" class="text-red-600 cursor-pointer" [attr.aria-label]="'Learn more about ' + topic.title">Learn more...</a>
+        </div>
+      </article>
+    </div>
+  </section>
+  
+  <section class="flex flex-col items-center text-center max-w-full mx-auto mb-10 mt-10">
+    <h2 class="text-3xl font-black text-pink-700">
+      How to Setup?
+    </h2>
+    <div class="flex items-center justify-center mt-6 w-full text-xs font-light text-black overflow-x-auto">
+      <ng-container *ngFor="let step of setupSteps; let last = last">
+        <div class="flex flex-col items-center w-[116px] min-w-[116px]">
+          <img alt=""
+            [src]="step.imageSrc"
+            [alt]="step.altText"
+            class="object-contain aspect-square w-[50px]"
+          />
+          <p class="mt-2.5 text-center">{{ step.description }}</p>
+        </div>
+        <div
+          *ngIf="!last"
+          class="w-[1px] h-[100px] bg-black mx-2"
+          aria-hidden="true"
+        ></div>
+      </ng-container>
+    </div>
+  </section>
+
+    <footer class="flex flex-col items-center justify-center pt-2 pb-4 shadow-sm bg-zinc-700 px-5 rounded-[30px_30px_0px_0px]">
+      <div class="flex flex-col items-center justify-center w-full text-white font-[275]">
+        <h2 class="text-sm font-semibold text-center">Contact Us</h2>
+        <div class="flex flex-col items-center justify-center w-full mt-1.5">
+          <div class="flex gap-0.5 items-center justify-center">
+            <a href="https://www.facebook.com/people/QBYFI/61561282452696/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="assets/images/facebok.png" alt="" class="object-contain w-10 aspect-square" /></a>
+            <a href="https://www.youtube.com/@QuanbySolutions/videos" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="assets/images/youtube.png" alt="" class="object-contain w-10 aspect-square" /></a>
+          </div>
+          <p class="text-base text-center mt-2 whitespace-nowrap">Copyright © 2024 QBFYI - All Rights Reserved.</p>
+          <p class="mt-2 text-xs text-center">Powered by Quanby Solutions, Inc.</p>
+        </div>
+      </div>
+    </footer>
