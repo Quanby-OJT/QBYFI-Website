@@ -1,0 +1,47 @@
+<main class="flex flex-col pl-10 pr-10 pt-3">
+    <section class="flex gap-5 max-md:flex-col">
+      <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+        <figure class="flex flex-wrap gap-10">
+          <div [class.blur]="isMenuOpen" class="relative transition duration-500 ease-in-out" [ngClass]="{'blur-sm': isMenuOpen}">
+
+          <a routerLink="/landing-page"><img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/66cb36df4a2d3f0505b6a1f1fe9df71c15eca0fcf5ecbcd3b5de863b4503f783?placeholderIfAbsent=true&apiKey=f3da7cc626194779a801c2475d250e92"
+            alt="Descriptive image"
+            class="object-contain shrink-0 max-w-full aspect-[1.59] w-[150px]"
+          /></a>
+
+          </div>
+        </figure>
+      </div>
+
+      <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+        <i class="object-contain pt-5 shrink-0 self-start ml-auto w-full aspect-square max-w-[32px] object-[top_right] bx bx-menu text-3xl cursor-pointer md:hidden" (click)="toggleMenu()"></i>
+      </div>
+      
+      <div [class.hidden]="!isMenuOpen" 
+     [ngClass]="{'transform translate-x-full': !isMenuOpen, 'transform translate-x-0': isMenuOpen}"
+     class=" fixed right-0 w-64 h-auto bg-pink-600 text-white p-6 z-50 rounded-tl-md rounded-bl-md top-3 shadow-lg transition-transform duration-[3000ms] ease-in-out">
+    <div class="h-5">
+        <i class="bx bx-x text-3xl cursor-pointer absolute top-4 right-4 mb-10" (click)="toggleMenu()"></i>
+    </div>
+    <ul class="space-y-4">
+        
+      <li><a routerLink="/landing-page" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">HOME</a></li>
+        <li><a routerLink="/register" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">REGISTER</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">RESIDENTIAL</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">PRODUCTS</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">CONTACT US</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SUPPORT</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">AVAILABILITY MAP</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">ABOUT US</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">SUBSCRIBE</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">CUSTOMER SERVICE</a></li>
+        <li><a href="" class="block font-['Poppins'] text-lg hover:bg-pink-700 hover:text-white hover:pl-1 hover:border-b-2 transition-all duration-300">FEEDBACK</a></li>
+    </ul>
+</div>
+
+<div *ngIf="isMenuOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 pointer-events-none"></div>
+
+    </section>
+  </main>
