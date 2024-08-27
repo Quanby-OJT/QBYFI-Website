@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 export class FeedbackComponent {
   selectedRating = 0;
   progressWidth = 0;
+  isLoading = false;
 
   feedbackData = {
     name: '',
@@ -76,7 +77,14 @@ export class FeedbackComponent {
     }
   }
 
+  
   reloadPage() {
-    window.location.reload();
+    this.isLoading = true; 
+    setTimeout(() => {
+      this.isLoading = false;
+     
+        window.location.reload();
+     
+    }, 3000); 
   }
 }
