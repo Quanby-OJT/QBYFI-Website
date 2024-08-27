@@ -1,0 +1,121 @@
+<app-loading *ngIf="isLoading" class="z-50"></app-loading>
+<div class="fixed inset-0 z-30 flex justify-center items-center bg-black bg-opacity-50">
+    <main class="flex relative gap-2.5 items-center justify-center">
+        <div class="px-3 py-3 items-center justify-center bg-white rounded-2xl border border-black border-solid w-[453px] mt-20">
+            <section class="flex z-0 flex-col justify-center items-center px-6 pt-5 pb-10 my-auto bg-white rounded-2xl border border-black border-solid min-h-[604px] min-w-[240px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[426px]">
+        <button (click)="reloadPage()" class=" gap-2.5 self-stretch py-2.5 max-w-full text-sm text-pink-700 whitespace-nowrap w-[360px] text-start">
+          Back
+        </button>
+        <form (submit)="onSubmit()" class="flex flex-col mt-5 max-w-full w-[376px]">
+          <div class="flex flex-col max-w-full w-[350px]">
+            <div class="flex gap-8 justify-between items-start w-full">
+              <div class="flex flex-col justify-center w-40 min-h-[60px]">
+                <label for="name" class="text-sm font-bold text-pink-700">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  [(ngModel)]="feedbackData.name"
+                  name="name"
+                  class="gap-2.5 self-stretch px-2.5 py-3.5 mt-1.5 w-40 max-w-full text-xs italic bg-white rounded-lg border border-solid border-zinc-500 shadow-[0px_2px_2px_rgba(0,0,0,0.18)] text-zinc-500"
+                  placeholder="Input your name"
+                />
+              </div>
+              <div class="flex flex-col justify-center w-40 min-h-[60px]">
+                <label for="contact" class="text-sm font-bold text-pink-700">Contact Number</label>
+                <input
+                  id="contact"
+                  type="tel"
+                  [(ngModel)]="feedbackData.contact"
+                  name="contact"
+                  class="gap-2.5 self-stretch px-2.5 py-3.5 mt-1.5 w-40 max-w-full text-xs italic whitespace-nowrap bg-white rounded-lg border border-solid shadow-sm border-zinc-500 text-zinc-500"
+                  placeholder="Input your number"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center mt-8 w-40 max-w-full min-h-[60px]">
+            <label for="email" class="text-sm font-bold text-pink-700">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              [(ngModel)]="feedbackData.email"
+              name="email"
+              class="gap-2.5 self-stretch px-2.5 py-3.5 mt-1.5 w-full text-xs italic whitespace-nowrap bg-white rounded-lg border border-solid shadow-sm border-zinc-500 text-zinc-500"
+              placeholder="Your email address here"
+            />
+          </div>
+          <fieldset class="flex flex-col mt-8 w-full">
+            <legend class="text-sm font-bold text-pink-700">Share your experience in scaling</legend>
+            <div class="flex flex-col mt-2.5 w-full max-w-[376px]">
+              <div class="flex gap-5 justify-between">
+                <img
+                  loading="lazy"
+                  [src]="selectedRating === 1 ? 'assets/feedback/worst1.png' : 'assets/feedback/worst.png'"
+                  (click)="selectRating(1)"
+                  class="object-contain shrink-0 w-10 aspect-square cursor-pointer"
+                  alt="Worst"
+                />
+                <img
+                  loading="lazy"
+                  [src]="selectedRating === 2 ? 'assets/feedback/notgood1.png' : 'assets/feedback/notgood.png'"
+                  (click)="selectRating(2)"
+                  class="object-contain shrink-0 w-10 aspect-square cursor-pointer"
+                  alt="Not Good"
+                />
+                <img
+                  loading="lazy"
+                  [src]="selectedRating === 3 ? 'assets/feedback/fine1.png' : 'assets/feedback/fine.png'"
+                  (click)="selectRating(3)"
+                  class="object-contain shrink-0 w-10 aspect-square cursor-pointer"
+                  alt="Fine"
+                />
+                <img
+                  loading="lazy"
+                  [src]="selectedRating === 4 ? 'assets/feedback/lookgood1.png' : 'assets/feedback/lookgood.png'"
+                  (click)="selectRating(4)"
+                  class="object-contain shrink-0 w-10 aspect-square cursor-pointer"
+                  alt="Look Good"
+                />
+                <img
+                  loading="lazy"
+                  [src]="selectedRating === 5 ? 'assets/feedback/verygood1.png' : 'assets/feedback/verygood.png'"
+                  (click)="selectRating(5)"
+                  class="object-contain shrink-0 w-10 aspect-square cursor-pointer"
+                  alt="Very Good"
+                />
+              </div>
+          
+              <div class="flex gap-5 justify-between text-xs font-bold text-emerald-200">
+                <div [ngClass]="{'text-teal-800': selectedRating === 1}">Worst</div>
+                <div [ngClass]="{'text-teal-800': selectedRating === 2}" class="text-center">Not<br />Good</div>
+                <div [ngClass]="{'text-teal-800': selectedRating === 3}" class="text-center">Fine</div>
+                <div [ngClass]="{'text-teal-800': selectedRating === 4}" class="text-center">Look<br />Good</div>
+                <div [ngClass]="{'text-teal-800': selectedRating === 5}">Very<br />Good</div>
+              </div>
+          
+              <div class="flex gap-0 mt-4 items-center self-start">
+                <div class="w-96 h-2 bg-zinc-300 rounded-3xl">
+                  <div
+                    class="flex bg-pink-700 rounded-3xl min-h-[8px]"
+                    [ngStyle]="{'width': progressWidth + '%'}"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+            <div class="flex flex-col w-full mt-8">
+              <div class="flex flex-col py-1 pr-1 pl-1 bg-white rounded-lg border border-solid shadow-sm border-zinc-500">
+                <textarea id="feedback" [(ngModel)]="feedbackData.feedback" name="feedback" placeholder="Share your feedback here..." class="flex flex-col w-full text-xs font-medium min-h-[85px] text-neutral-400"></textarea>
+              </div>
+            </div>
+        
+            <div class="flex justify-center items-center mt-5">
+                <button type="submit" class="flex justify-center items-center text-sm font-bold text-white whitespace-nowrap w-[350px] px-3 py-3.5 bg-pink-700 rounded-lg min-h-[45px] min-w-[240px] shadow-[1px_2px_2px_rgba(0,0,0,0.4)]">
+                  SUBMIT
+                </button>
+              </div>
+              
+        </form>
+      </section></div>
+    </main>
+</div>
