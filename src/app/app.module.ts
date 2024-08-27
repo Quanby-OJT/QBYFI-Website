@@ -7,10 +7,17 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SupportPageComponent } from './support-page/support-page.component';
+import { BroadbandaccessComponent } from './broadbandaccess/broadbandaccess.component';
+import { CustomersupportComponent } from './customersupport/customersupport.component';
+import { NetworkinfastructureComponent } from './networkinfastructure/networkinfastructure.component';
+import { RegulatorycomplianceComponent } from './regulatorycompliance/regulatorycompliance.component';
+import { TechnologicalinnovationComponent } from './technologicalinnovation/technologicalinnovation.component';
+import { DatasecurityandprivacyComponent } from './datasecurityandprivacy/datasecurityandprivacy.component';
+import { LoadingComponent } from './loading/loading.component';
 import { HeaderlogComponent } from './headerlog/headerlog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
-import { LoadingComponent } from './loading/loading.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
 
@@ -23,6 +30,19 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     LoginComponent,
     RegisterComponent,
     ModalComponent,
+    SupportPageComponent,
+    BroadbandaccessComponent,
+    CustomersupportComponent,
+    NetworkinfastructureComponent,
+    RegulatorycomplianceComponent,
+    TechnologicalinnovationComponent,
+    DatasecurityandprivacyComponent,
+    LoadingComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
     HeaderlogComponent,
     ModalComponent,
     LoadingComponent,
