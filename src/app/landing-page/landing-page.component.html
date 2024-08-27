@@ -1,184 +1,441 @@
-<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
-<div  [class.blur]="isMenuOpen" class="font-['Poppins']">
-<div class="bg-[url('assets/images/bglanding.png')] bg-cover bg-no-repeat w-full h-screen pt-20 flex flex-col items-center">
-  <h1 class="text-violet-950 text-4xl md:text-6xl lg:text-8xl font-bold mb-2 mt-32 max-h-40 text-center">LIGHT SPEED ACCESS</h1>
-  <h4 class="text-pink-700/95 text-2xl md:text-4xl lg:text-5xl font-semibold mt-1 text-center">YOUR RELIABLE INTERNET SOLUTION</h4>
+<!-- Conditionally render the feedback component centered -->
+<app-feedback *ngIf="showFeedback" class="z-50"></app-feedback>
 
-  <label class="text-black text-lg md:text-xl lg:text-2xl font-extrabold md:mt-12 lg:mt-16 mr-[300px]">Service Address</label>
-   
-  <div class="items-center ">
-    <form action="">  
-      <div class="flex flex-col items-center md:flex-row space-y-4 md:space-x-4 md:space-y-0 w-full max-w-4xl md:mt-0 mx-auto">
-      <input id="service-address" type="text" placeholder="Enter your service address" class="w-full md:w-[380px] h-12 px-4 rounded-lg border border-white outline-none bg-white/50 backdrop-blur-sm">
-        <a href="" class="w-full md:w-[130px] h-12 bg-violet-950 rounded-lg border border-violet-950 flex items-center justify-center text-white text-base">
-          APPLY NOW
-        </a>
+<app-loading *ngIf="isLoading" class="z-50"></app-loading>
+<app-header class="fixed top-0 left-0 w-full z-10"></app-header>
+
+<div  [class.blur]="isMenuOpen" class="font-['Poppins']">
+  <div class="bg-[url('assets/images/bglanding.png')] bg-cover bg-no-repeat w-full h-full pt-20 flex flex-col items-center">
+    <h1 class="text-violet-950 text-4xl md:text-6xl lg:text-8xl font-bold mb-2 mt-32 max-h-40 text-center">LIGHT SPEED ACCESS</h1>
+    <h4 class="text-pink-700/95 text-2xl md:text-4xl lg:text-5xl font-semibold mt-1 text-center">YOUR RELIABLE INTERNET SOLUTION</h4>
+    <label class="text-black text-lg md:text-xl lg:text-2xl font-extrabold md:mt-12 lg:mt-16 mr-[300px]">Service Address</label>
+    <div class="items-center ">
+      <form action=""> 
+        <div class="relative flex flex-col items-center md:flex-row space-y-4 md:space-x-4 md:space-y-0 w-full max-w-4xl md:mt-0 mx-auto">
+          <input type="text" placeholder="Enter your service address" class="w-full md:w-[380px] h-12 px-4 rounded-lg border border-white outline-none bg-white/50 backdrop-blur-sm" (input)="onSearchInput($event)" />
+          <a (click)="animateClick1($event)" class="cursor-pointer hover:border-white border-transparent transition-all duration-300 w-full md:w-[130px] h-12 bg-violet-950 rounded-lg border-2 border-violet-950 flex items-center justify-center text-white text-base">
+            APPLY NOW
+          </a>
+          <div *ngIf="suggestions.length" class="absolute top-[-3rem] -left-4 bg-white/90 border border-gray-300 w-full md:w-[380px] max-w-md z-10 ">
+            <ul>
+              <li *ngFor="let suggestion of suggestions" class="p-2 cursor-pointer hover:bg-gray-200" (click)="onSuggestionClick(suggestion)">
+                <div class="flex justify-between items-center">
+                  <p class="text-start">{{ suggestion }}</p>
+                  <p class="text-end text-green-600">is Available</p>
+                </div> 
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="text-black text-base font-extrabold inline-flex items-center mb-80 ml-32">
-          <input id="location" type="button" value="VIEW AVAILABILITY & SPEED MAP" class="cursor-pointer">
+        <div (click)="toggleSubscriptionTracking()" class="text-black text-base font-extrabold inline-flex items-center mb-80 ml-32">
+          <input type="button" value="VIEW SUBSCRIPTION PROCESS " class="cursor-pointer">
           <i class='bx bx-chevron-right text-3xl ml-2'></i>
         </div>
-    </form>
-  </div>
-</div>
-
-  <div class="flex flex-wrap gap-10 mt-10 justify-between items-start">
-    <div class="flex flex-wrap items-start min-w-[240px] max-md:max-w-full">
-      <img src="assets/images/Avatar 2.png" alt="avatar" class="w-96 h-96 shadow-custom-pink relative z-40">
-      <div class="flex flex-col min-w-[240px] w-[293px]">
-        <div class="relative left-[-50px] flex flex-col items-start max-w-full font-semibold rounded-none text-violet-950 w-[293px] max-md:text-4xl">
-          <div class="text-5xl font-black text-center text-rose-500 max-md:text-4xl mb-5">
-            PLANS
-          </div>
-          <div class="text-4xl self-stretch max-md:text-4xl font-semibold w-60">
-            EXPERIENCE INTERNET BLISS WITH QBYFI!
-          </div>
-        </div>
-        <a href="" class=" relative left-[-50px] w-48 flex flex-col mt-3.5 max-w-full text-xl font-bold text-center text-white rounded-[100px]">
-          <div class="px-1 bg-rose-500 rounded-[100px] h-12 text-xl font-bold flex items-center justify-center">
-            VIEW PLANS
-          </div>
-        </a>
-        
-      </div>
+      </form>
     </div>
-    
-    <div class="relative left-[-100px] flex flex-col text-center min-w-[240px] w-[280px] ">
-      <div class="flex flex-col w-full font-semibold text-black ">
-        <div class="flex flex-col items-center px-10 py-12 bg-white rounded-3xl max-md:px-5  max-md:py-5 border-2 border-violet-950 shadow-[0px_4px_15px_rgba(58,25,81,1)]">
-          <div class=" max-md:text-4xl text-4xl font-semibold">300</div>
-          <div class=" text-4xl font-semibold top-[33px]">Mbps</div>
-          <div class="z-10 text-2xl font-normal">PHP</div>
-          <div class="self-stretch font-semibold text-rose-500 max-md:text-4xl text-4xl">
-            1,000.00
-          </div>
-          <div class=" text-2xl font-normal">/ month</div>
-        </div>
-      </div>
-
-      <div class="mt-5 text-3xl font-extrabold text-violet-950 top-5">
-        QBYFI Velocity
-      </div>
-    </div>
-    <div class="relative left-[-100px] flex flex-col text-center min-w-[240px] w-[280px]">
-      <div class="flex flex-col w-full font-semibold text-black">
-        <div class="flex flex-col items-center px-10 py-12 bg-white rounded-3xl max-md:px-5  max-md:py-5 border-2 border-violet-950 shadow-[0px_4px_15px_rgba(58,25,81,1)]">
-          <div class=" max-md:text-4xl text-4xl font-semibold">500</div>
-          <div class=" text-4xl font-semibold top-[33px]">Mbps</div>
-          <div class="z-10 text-2xl font-normal">PHP</div>
-          <div class="self-stretch font-semibold text-rose-500 max-md:text-4xl text-4xl">
-            1,700.00
-          </div>
-          <div class=" text-2xl font-normal">/ month</div>
-        </div>
-      </div>
-
-      <div class="mt-5 text-3xl font-extrabold text-violet-950 top-5">
-        QBYFI Nitro
-      </div>
-    </div>
-
-    <div class="flex flex-wrap justify-between items-center self-stretch w-full mt-[-100px]">
-      <div class="flex-1 min-w-[300px] bg-rose-500 h-[43px]"></div>
-      <div class="flex-1 min-w-[300px] bg-violet-950 h-[43px]"></div>
-    </div>  
-  </div>
- 
-    <div class="flex flex-col items-start px-16 pt-14 pb-24 bg-white max-md:px-5">
-      <div class="flex flex-wrap gap-10 items-center max-md:max-w-full">
-        <div class="flex flex-wrap gap-9 items-center self-stretch my-auto min-w-[240px] max-md:max-w-full">
-          <article class="flex flex-col items-center self-stretch my-auto min-w-[240px] w-[250px]">
-            <div class="flex flex-col max-w-full w-[250px]">
-              <div class=" border-2 border-black flex flex-col justify-center items-center px-12 bg-white rounded-full aspect-square max-md:px-5">
-                <img loading="lazy" src="assets/images/UPS.png" alt="UPS Package icon" class="object-contain aspect-square w-[150px]" />
-              </div>
-            </div>
-            <h2 class="mt-5 text-3xl font-bold text-center text-rose-500">
-              UPS <br><span class="text-violet-950">PACKAGE</span>
-            </h2>
-          </article>
-          <article class="flex flex-col items-center self-stretch my-auto min-w-[240px] w-[250px]">
-            <div class="flex flex-col max-w-full w-[250px]">
-              <div class=" border-2 border-black flex flex-col justify-center items-center px-12 bg-white rounded-full aspect-square max-md:px-5">
-                <img loading="lazy" src="assets/images/Surveillance camera.png" alt="CCTV Package icon" class="object-contain aspect-square w-[150px]" />
-              </div>
-            </div>
-            <h2 class="mt-5 text-3xl font-bold text-center text-rose-500">
-              CCTV <br><span class="text-violet-950">PACKAGE</span>
-            </h2>
-          </article>
-          <article class="flex flex-col items-center self-stretch my-auto min-w-[240px] w-[250px]">
-            <div class="flex flex-col max-w-full w-[250px]">
-              <div class=" border-2 border-black flex flex-col items-center px-12 pt-9 pb-16 bg-white rounded-full aspect-square max-md:px-5 mt-[15px]">
-                <img loading="lazy" src="assets/images/Modem.png" alt="Networking Package icon" class="object-contain aspect-square w-[150px]" />
-              </div>
-            </div>
-            <h2 class="mt-5 text-3xl font-bold text-center text-rose-500">
-              NETWORKING <span class="text-violet-950">PACKAGE</span>
-            </h2>
-          </article>
-        </div>
-        <aside class="flex flex-col self-stretch my-auto min-w-[240px] w-[321px]">
-          <div class="flex flex-col w-full">
-            <div class="flex flex-col w-full">
-              <h1 class="text-6xl font-black text-center text-rose-500 max-md:text-4xl">
-                ADD- <span class="text-violet-950">ONS</span>
-              </h1>
-              <p class="text-base text-black">
-                3 Add-ons, can be APPLIED TO EITHER PLAN
-              </p>
-            </div>
-            <button class="flex flex-col self-center mt-5 max-w-full text-2xl font-semibold text-center text-white rounded-[100px] w-[200px]">
-              <span class="px-7 py-1.5 bg-violet-950 rounded-[100px] max-md:px-5">
-                Learn More
-              </span>
-            </button>
-          </div>
-          <div class="flex self-center mt-9 max-w-full bg-rose-500 min-h-[15px] w-[120px]"></div>
-        </aside>
-      </div>
-    </div>
-
-    <div class="relative flex flex-col justify-between">
-      <img loading="lazy" src="assets/images/Promo.png" alt="Promo image" class="object-contain w-full aspect-[2.54] max-md:max-w-full"/>
-      
-      <div class="absolute inset-0 flex flex-col justify-center items-center px-14 py-16 max-w-full bg-rose-500 bg-opacity-30  h-full w-[760px] max-md:px-5 rounded-tr-[100px] rounded-br-[100px]">
-        <div class="flex flex-col justify-center p-2.5 max-w-full w-[596px]">
-          <div class="flex flex-col w-full max-md:max-w-full">
+    <!--subscription tracking-->
+    <section  [ngClass]="{'slide-left-fade-in': !isFadingOut, 'fade-out': isFadingOut}" *ngIf="isSubscriptionTrackingVisible" class=" -top-72 relative z-20 flex flex-col items-start px-4 pt-3 pb-5 text-xs text-white rounded-md bg-rose-500 bg-opacity max-w-[793px]">
+      <div class="flex flex-wrap gap-10 items-start max-md:max-w-full">
+        <div class="flex flex-col min-w-[240px] w-[668px] max-md:max-w-full">
+          <header class="flex flex-col w-full max-md:max-w-full">
             <div class="flex flex-col w-full max-md:max-w-full">
-              <header class="flex flex-col w-full font-black max-md:max-w-full">
-                <h1 class="text-6xl text-rose-500 max-md:max-w-full max-md:text-4xl">
-                  PROMO
-                </h1>
-                <h2 class="flex flex-col justify-center w-full text-5xl text-white max-md:max-w-full max-md:text-4xl">
-                  
-                  <span class="max-md:max-w-full max-md:text-4xl">
-                    Discount up to 20% for new members.
-                  </span>
-                </h2>
-              </header>
-              <p class="text-base font-medium text-white max-md:max-w-full">
-                Lorem ipsum dolor sit amet. Ea galisum omnis <br />
-                est provident distinctio est omnis vitae quo sint numquam ut porro ipsum? Id quia totam id natus voluptatum et provident facilis et dolores corrupti qui quia corporis 33 quas autem ea tenetur magnam?
+              <p class="max-md:max-w-full">
+                Subscription Number: {{ subscriptionDetails?.Subscription_Number }}
               </p>
+              <div class="flex flex-col mt-3 w-full max-md:max-w-full">
+                <div class="flex flex-wrap gap-10 justify-between items-center w-full max-md:max-w-full">
+                  <div class="flex flex-col self-stretch my-auto max-md:max-w-full">
+                    <p>Add-Ons: {{ subscriptionDetails?.Add_Ons }}</p>
+                    <p class="mt-2">Subscription Plan Type: {{ subscriptionDetails?.Subscription_Plan }}</p>
+                  </div>
+                  <div class="flex flex-col self-stretch my-auto max-md:max-w-full">
+                    <p>Expected Installation Date: {{ subscriptionDetails?.Expected_Installation_Date }}</p>
+                    <p class="mt-2">Status: <strong>{{ subscriptionDetails?.Status }}</strong></p>
+                  </div>
+                </div>
+                <p class="mt-1.5 max-md:max-w-full">
+                  Subscription Date: {{ subscriptionDetails?.created_at }}
+                </p>
+              </div>
             </div>
-            <a href="#" class="flex flex-col mt-4 max-w-full text-2xl font-semibold text-center text-white rounded-[100px] w-[200px]">
-              <span class="px-11 py-1.5 bg-rose-500 rounded-[100px] max-md:px-5">
-                Get Now!
-              </span>
-            </a>
+          </header>
+          <footer class="mt-8 max-md:max-w-full">
+            For support, contact us at qbyfi&#64;gmail.com
+          </footer>
+        </div>
+        <img (click)="hideSubscriptionTracking()" loading="lazy" src="assets/images/x-button.png" alt="" class=" object-contain shrink-0 aspect-square w-[15px]"/>
+      </div>
+    </section>
+
+    <!--Subscription Number-->
+    <section class="flex flex-col justify-center items-start px-16 py-5 rounded-xl bg-rose-500 bg-opacity-80 max-md:px-5 -mt-52 mb-5">
+      <form (submit)="onSubmit(subscriptionNumber.value); $event.preventDefault()" class="flex flex-wrap gap-10 items-center max-md:max-w-full">
+        <div class="flex flex-wrap gap-6 items-center self-stretch my-auto text-xl min-w-[240px] max-md:max-w-full">
+          <label class="sr-only">Subscription Number</label>
+          <input #subscriptionNumber type="text" name="subscriptionNumber" class="gap-2.5 self-stretch px-7 py-4 my-auto text-rose-500 bg-white border border-rose-500 border-solid min-h-[60px] min-w-[240px] rounded-[50px] w-[477px] max-md:px-5 max-md:max-w-full" placeholder="Subscription Number" aria-label="Subscription Number" />
+          <button [disabled]="isSubmitting" (click)="onSubmit(subscriptionNumber.value); animateClick($event)" type="submit" class="flex gap-1.5 items-center justify-center self-stretch px-6 py-4 my-auto font-semibold text-white whitespace-nowrap bg-violet-950 min-h-[60px] rounded-[50px] w-[150px] max-md:px-5 hover:border-white border-2 border-transparent transition-all duration-300">
+            <span>Submit</span>
+            <i class='bx bx-envelope object-contain shrink-0 self-stretch my-auto aspect-square text-2xl'></i>
+          </button>
+        </div>
+        <h2 class="self-stretch my-auto text-2xl font-bold text-white max-md:max-w-full">
+          Please Input your Subscriber Number
+        </h2>
+      </form>
+    </section>
+  </div>
+  <!--plans-->
+  <section class="flex flex-wrap justify-center items-start mt-5">
+    <img loading="lazy" src="assets/images/Avatar 2.png" alt="Decorative image for QBYFI plans" class="object-contain relative aspect-[0.76] min-w-[240px] w-[390px] z-10" />
+    <div class="flex flex-wrap gap-10 justify-center items-start min-w-[240px] max-md:max-w-full ">
+      <div class="flex flex-col min-w-[240px] w-[293px]">
+        <header class="flex flex-col items-start max-w-full text-5xl font-semibold rounded-none text-violet-950 w-[293px] max-md:text-4xl">
+          <h1 class="text-6xl font-black text-center text-rose-500 max-md:text-4xl">PLANS</h1>
+          <p class="self-stretch max-md:text-4xl">EXPERIENCE INTERNET BLISS WITH QBYFI!</p>
+        </header>
+        <a routerLink="subscription-plan" class="flex flex-col mt-3.5 max-w-full text-xl font-bold text-center text-white rounded-[100px] w-[200px]">
+          <span class="px-5 py-5 bg-rose-500 rounded-[100px] max-md:px-5 hover:bg-violet-950">VIEW PLANS</span>
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-10 justify-between items-center text-center min-w-[240px] w-[625px] max-md:max-w-full">
+        <article *ngFor="let plan of plans" role="article" [attr.aria-label]="plan.name + ' Plan'" class="flex flex-col self-stretch my-auto min-w-[240px] w-[280px]">
+          <div class="flex flex-col w-full font-semibold text-black">
+            <div class="flex flex-col items-center px-10 py-12 bg-white rounded-3xl border-solid border-[3px] border-violet-950 shadow-[0px_4px_15px_rgba(58,25,81,1)] max-md:px-5">
+              <p class="text-5xl max-md:text-4xl">{{ plan?.speed_description }}</p>
+              <p class="mt-3.5 text-4xl">Mbps</p>
+              <p class="z-10 mt-3.5 text-3xl">PHP</p>
+              <p class="self-stretch text-5xl font-extrabold text-rose-500 max-md:text-4xl text-center"><!--₱-->{{ plan?.prize | number: '1.2-2' }}</p>
+              <p class="mt-2.5 text-2xl">/ month</p>
+            </div>
           </div>
+          <h2 class="self-center mt-5 text-3xl font-extrabold text-violet-950">{{ plan?.name }}</h2>
+        </article>
+      </div>
+      
+      
+      
+    </div>
+  </section>
+  <div class="flex flex-wrap justify-between items-center self-stretch w-full mt-[-95px]">
+    <div class="flex-1 min-w-[300px] bg-rose-500 h-[43px]"></div>
+    <div class="flex-1 min-w-[300px] bg-violet-950 h-[43px]"></div>
+  </div>  
+ <!--package-->
+  <div class="flex flex-col items-center px-16 pt-14 pb-24 bg-white max-md:px-5">
+    <div class="flex flex-wrap gap-10 items-center max-md:max-w-full">
+      <div class="flex flex-wrap gap-9 items-center self-stretch my-auto min-w-[240px] max-md:max-w-full">
+        <article class="flex flex-col items-center self-stretch my-auto min-w-[240px] w-[250px]">
+          <div class="flex flex-col max-w-full w-[250px]">
+            <div class=" border-2 border-black flex flex-col justify-center items-center px-12 bg-white rounded-full aspect-square max-md:px-5">
+              <img loading="lazy" src="assets/images/UPS.png" alt="UPS Package icon" class="object-contain aspect-square w-[150px]" />
+            </div>
+          </div>
+          <h2 class="mt-5 text-3xl font-bold text-center text-rose-500">
+            UPS <br><span class="text-violet-950">PACKAGE</span>
+          </h2>
+        </article>
+        <article class="flex flex-col items-center self-stretch my-auto min-w-[240px] w-[250px]">
+          <div class="flex flex-col max-w-full w-[250px]">
+            <div class=" border-2 border-black flex flex-col justify-center items-center px-12 bg-white rounded-full aspect-square max-md:px-5">
+              <img loading="lazy" src="assets/images/Surveillance camera.png" alt="CCTV Package icon" class="object-contain aspect-square w-[150px]" />
+            </div>
+          </div>
+          <h2 class="mt-5 text-3xl font-bold text-center text-rose-500">
+            CCTV <br><span class="text-violet-950">PACKAGE</span>
+          </h2>
+        </article>
+        <article class="flex flex-col items-center self-stretch my-auto min-w-[240px] w-[250px]">
+          <div class="flex flex-col max-w-full w-[250px]">
+            <div class=" border-2 border-black flex flex-col items-center px-12 pt-9 pb-16 bg-white rounded-full aspect-square max-md:px-5 mt-[15px]">
+              <img loading="lazy" src="assets/images/Modem.png" alt="Networking Package icon" class="object-contain aspect-square w-[150px]" />
+            </div>
+          </div>
+          <h2 class="mt-5 text-3xl font-bold text-center text-rose-500">
+            NETWORKING <span class="text-violet-950">PACKAGE</span>
+          </h2>
+        </article>
+      </div>
+      <aside class="flex flex-col self-stretch my-auto min-w-[240px] w-[321px]">
+        <div class="flex flex-col w-full">
+          <div class="flex flex-col w-full">
+            <h1 class="text-6xl font-black text-center text-rose-500 max-md:text-4xl">
+              ADD-<span class="text-violet-950">ONS</span>
+            </h1>
+            <p class="text-base text-black text-center">
+              3 Add-ons, can be APPLIED TO EITHER PLAN
+            </p>
+          </div>
+          <button class="flex flex-col self-center mt-5 max-w-full text-2xl font-semibold text-center text-white rounded-[100px] w-[200px]">
+            <span class="px-7 py-1.5 bg-violet-950 rounded-[100px] max-md:px-5 hover:bg-rose-500">
+              Learn More
+            </span>
+          </button>
+        </div>
+        <div class="flex self-center mt-9 max-w-full bg-rose-500 min-h-[15px] w-[120px]"></div>
+      </aside>
+    </div>
+  </div>
+  <!--promo-->
+  <div class="relative flex flex-col justify-between">
+    <img loading="lazy" src="assets/images/Promo.png" alt="Promo image" class="object-contain w-full aspect-[2.54] max-md:max-w-full"/>
+    <div class="absolute inset-0 flex flex-col justify-center items-center px-14 py-16 max-w-full bg-rose-500 bg-opacity-30  h-full w-[760px] max-md:px-5 rounded-tr-[100px] rounded-br-[100px]">
+      <div class="flex flex-col justify-center p-2.5 max-w-full w-[596px]">
+        <div class="flex flex-col w-full max-md:max-w-full">
+          <div class="flex flex-col w-full max-md:max-w-full">
+            <header class="flex flex-col w-full font-black max-md:max-w-full">
+              <h1 class="text-6xl text-rose-500 max-md:max-w-full max-md:text-4xl">
+                PROMO
+              </h1>
+              <h2 class="flex flex-col justify-center w-full text-5xl text-white max-md:max-w-full max-md:text-4xl">
+                <span class="max-md:max-w-full max-md:text-4xl">
+                  Discount up to 20% for new members.
+                </span>
+              </h2>
+            </header>
+            <p class="text-base font-medium text-white max-md:max-w-full">
+              Lorem ipsum dolor sit amet. Ea galisum omnis <br />
+              est provident distinctio est omnis vitae quo sint numquam ut porro ipsum? Id quia totam id natus voluptatum et provident facilis et dolores corrupti qui quia corporis 33 quas autem ea tenetur magnam?
+            </p>
+          </div>
+          <a href="#" class="flex flex-col mt-4 max-w-full text-2xl font-semibold text-center text-white rounded-[100px] w-[200px]">
+            <span class="px-11 py-1.5 bg-rose-500 rounded-[100px] max-md:px-5">
+              Get Now!
+            </span>
+          </a>
         </div>
       </div>
     </div>
-    
-    <div class="fixed right-0 bottom-10 z-10 flex gap-2.5 items-center bg-rose-500 h-[160px] w-[23px] rounded-tl-md rounded-bl-md">
-      <div class="rotate-90">
-        <img src="assets/images/comment.png" alt="">
+  </div>
+  <!--support-->
+  <div class="flex flex-col w-full justify-center items-center mt-10">
+    <h2 class="text-4xl font-bold text-black max-md:max-w-full">
+      How can we help you today?
+    </h2>
+    <nav class="flex gap-6 justify-center items-center self-center mt-1 text-xl">
+      <!-- My Account Button -->
+<a (click)="toggleAndScrollToFeedback('account')" 
+[ngClass]="activeButton === 'account' ? 'gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-white bg-rose-500 hover:bg-violet-950 rounded-3xl min-h-[40px] w-[150px]' : 'gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-rose-500 bg-transparent rounded-3xl min-h-[40px] w-[150px]'" 
+role="button">
+My Account
+</a>
+
+<!-- Support Button -->
+<a (click)="toggleAndScrollToFeedback('support')" 
+[ngClass]="activeButton === 'support' ? 'text-center gap-2.5 self-stretch px-3.5 py-1.5 my-auto font-semibold text-white bg-rose-500 hover:bg-violet-950 rounded-3xl min-h-[40px] w-[150px]' : 'font-semibold self-stretch my-auto text-rose-500'" 
+role="button">
+Support
+</a>
+
+    </nav>
+  </div>
+  <div id="accountSection" class="flex flex-col mt-10" [ngClass]="{'hidden': isSupportSectionVisible, 'slide-left-fade-in': !isSupportSectionVisible}">
+    <div class="flex flex-col mt-10 pl-40 pr-20 max-md:pl-5">
+      <div class="flex flex-row justify-between gap-10 max-md:flex-col mr-10">
+        <div class="flex flex-col w-full text-black max-md:max-w-full">
+          <h1 class="text-md font-light max-md:max-w-full">Current Customers</h1>
+          <div class="flex flex-col w-full max-md:max-w-full">
+            <h2 class="text-4xl font-bold max-md:max-w-full max-md:text-4xl max-w-[500px]">
+              Easily manage your account
+            </h2>
+            <div class="flex flex-col w-full max-md:max-w-full">
+              <div class="flex flex-col mt-1 w-full text-md font-light max-md:max-w-full">
+                <p class="max-w-[588px]">
+                  With the Qbyfi app, you can access all your account information in one convenient place.
+                </p>
+                <ul class="flex flex-col items-start mt-3.5 w-full max-md:max-w-full">
+                  <li class="flex flex-wrap gap-2 items-center max-md:max-w-full">
+                    <span class="self-stretch my-auto max-md:max-w-full">
+                      <i class='bx bx-check text-3xl'></i> Review your bill, check your balance and due dates
+                    </span>
+                  </li>
+                  <li class="flex gap-2 items-center mt-2.5">
+                    <span class="self-stretch my-auto"><i class='bx bx-check text-3xl'></i> Make and confirm payments</span>
+                  </li>
+                  <li class="flex flex-wrap gap-2 items-center self-stretch mt-2.5 w-full max-md:max-w-full">
+                    <span class="self-stretch my-auto max-md:max-w-full">
+                      <i class='bx bx-check text-3xl'></i> See your plan details, makes changes, and add features
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <a routerLink="login" class="mt-12 max-w-full text-md font-semibold text-center text-white rounded-[100px] w-[150px] px-10 py-2.5 bg-violet-950 hover:bg-rose-500 max-md:mt-10 max-md:px-5">
+            Sign In
+          </a>
+        </div>
+        <div class="h-[500px] pl-5 overflow-hidden">
+          <div class="flex flex-col justify-center items-center bg-white border border-solid border-violet-950 max-w-[500px] shadow-[10px_10px_1px_rgba(199,6,85,1)] h-60">
+            <img loading="lazy" src="assets/images/LOGO.png" alt="Decorative image" class=" w-[400px] z-10"/>
+          </div>
+          <div class="">
+            <img loading="lazy" src="assets/images/Avatar 1.png" alt="Decorative image" class="object-contain aspect-[1.63] z-10 relative bottom-60 left-48 "/>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="flex flex-col md:flex-row gap-10 items-center justify-center bg-violet-950 p-40 relative z-10">
+      <div class="flex justify-center w-full md:w-1/2">
+        <img loading="lazy" src="assets/images/tenor.gif" alt="Website builder illustration" class=" md:mr-80 z-10 object-contain self-stretch my-auto rounded-xl aspect-[1.34] min-w-[400px] w-[467px] max-md:max-w-full"/>
+        <div class="absolute inset-0 flex flex-col justify-center items-center px-14 py-16 max-w-full bg-rose-500/80 bg-opacity-30  h-full w-[700px] max-md:px-5 rounded-tr-full rounded-br-full"></div>
+      </div>
+      <div class="flex flex-col justify-center w-full md:w-1/2 min-w-[240px] max-md:max-w-full">
+        <div class="flex flex-col w-full max-md:max-w-full">
+          <h1 class="text-5xl font-black text-white max-md:max-w-full max-md:text-4xl">
+            Build your own
+            <span class="block">
+              website in Q<span class="text-rose-500">by</span>fi.
+            </span>
+          </h1>
+          <div class="flex gap-2.5 items-end self-start mt-2">
+            <div class="flex shrink-0 h-2.5 bg-orange-600 w-[200px]"></div>
+            <div class="flex shrink-0 w-2.5 h-2.5 bg-orange-600 rounded-full"></div>
+            <div class="flex shrink-0 w-2.5 h-2.5 bg-orange-600 rounded-full"></div>
+            <div class="flex shrink-0 w-2.5 h-2.5 bg-orange-600 rounded-full"></div>
+          </div>
+        </div>
+        <p class="mt-6 text-xl font-medium text-white max-md:max-w-full w-[500px]">
+          Start designing a website that reflects <br />
+          your brand and vision, no coding required. Our intuitive platform empowers you to create stunning, professional websites with ease. Get started today and bring your ideas to life!
+        </p>
+        <a class="mt-7 px-10 py-2.5 max-w-full text-xl font-semibold text-center text-rose-500 whitespace-nowrap rounded-[100px] w-[150px] border border-rose-500 border-solid bg-violet-950 bg-opacity-0 max-md:px-5 hover:bg-rose-500 hover:text-white hover:border-white hover:border-solid">
+          Create
+        </a>
       </div>
     </div>
-    
-    
-    
-
+  </div>
+  <!--feedback-->
+  <section  id="feedbackSection" class="flex flex-col mt-10" [ngClass]="{'hidden': !isSupportSectionVisible, 'slide-left-fade-in': isSupportSectionVisible}">
+    <header class="flex flex-col items-center px-20 pt-4 pb-8 w-full bg-rose-500 min-h-[200px] max-md:px-5 max-md:max-w-full">
+      <div class="flex flex-col w-full max-w-[1279px] max-md:max-w-full">
+        <div class="flex flex-col self-center max-w-full w-[456px]">
+          <h1 class="text-3xl font-semibold text-center text-violet-950 max-md:max-w-full">
+            Need Support?
+          </h1>
+          <p class="text-base font-medium text-white max-md:max-w-full w-[500px] text-center">
+            Get quick answers to common question and hands-on help.
+          </p>
+        </div>
+        <nav class="flex flex-wrap gap-10 justify-center items-center mt-8 w-full text-xl font-semibold text-white max-md:max-w-full">
+          <div class="flex gap-6 items-center self-stretch my-auto">
+            <i class='bx bx-message-rounded text-6xl' ></i>
+            <span class="self-stretch my-auto">Qbyfi</span>
+          </div>
+          <div class="flex gap-4 items-center self-stretch my-auto whitespace-nowrap">
+            <i class='bx bx-phone text-6xl' ></i>
+            <span class="self-stretch my-auto">+052-431-1169</span>
+          </div>
+          <div class="flex gap-6 items-center self-stretch my-auto whitespace-nowrap min-w-[240px]">
+            <i class='bx bx-envelope text-6xl' ></i>
+            <span class="self-stretch my-auto">inquiries qbyfi.com</span>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="flex flex-col self-center mt-16 max-w-full w-[1390px] max-md:mt-10">
+      <section class="flex flex-col self-center max-w-full w-[299px]">
+        <h2 class="text-4xl font-semibold text-black">Popular Article</h2>
+        <div class="flex gap-2.5 justify-center items-center self-center mt-2">
+          <div class="flex shrink-0 self-stretch my-auto h-2.5 bg-orange-500 w-[200px]"></div>
+          <div class="flex shrink-0 self-stretch my-auto w-2.5 h-2.5 bg-orange-500 rounded-full"></div>
+          <div class="flex shrink-0 self-stretch my-auto w-2.5 h-2.5 bg-orange-500 rounded-full"></div>
+          <div class="flex shrink-0 self-stretch my-auto w-2.5 h-2.5 bg-orange-500 rounded-full"></div>
+        </div>
+      </section>
+      <div class="flex flex-wrap gap-5 justify-center items-center mt-10 w-full max-md:max-w-full">
+        <article class="flex flex-col grow shrink self-stretch my-auto min-w-[240px] w-[360px] max-md:max-w-full hover:scale-105 transition-transform duration-300">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e79a02fe7465c5d2599caabde14edcce3475e866a1686fc0aaa774814f653405?placeholderIfAbsent=true&apiKey=f814d152556d45aeb58d44f206a3cbd4" alt="Speed up your home internet" class="object-contain w-full rounded-none aspect-[1.8] max-md:max-w-full" />
+          <div class="flex flex-col justify-center items-start px-6 py-5 w-full bg-white rounded-none border-r border-b border-l border-orange-600 min-h-[300px] max-md:px-5 max-md:max-w-full">
+            <div class="flex flex-col max-w-full w-[324px] h-[288px]">
+              <div class="flex flex-col w-full">
+                <p class="text-base text-black">How to</p>
+                <div class="flex flex-col w-full">
+                  <h3 class="text-2xl font-semibold text-violet-950">
+                    Speed up your home internet
+                  </h3>
+                  <p class="mt-1.5 text-base font-light text-black">
+                    Lorem ipsum dolor sit amet. Cum quaerat harum quo iste nihil aut alias odit.
+                  </p>
+                </div>
+              </div>
+              <button class="gap-2.5 self-stretch px-0 py-3 mt-20 max-w-full text-base font-semibold text-rose-500 bg-white rounded-3xl border border-rose-500 hover:bg-rose-500 hover:text-white border-solid min-h-[45px] w-[125px] max-md:mt-10">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="flex flex-col grow shrink self-stretch my-auto min-w-[240px] w-[360px] max-md:max-w-full hover:scale-105 transition-transform duration-300">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0525c02ea97e5e3402bc970615c1cd75bd6f97f7a023410422af0bdc2f584db8?placeholderIfAbsent=true&apiKey=f814d152556d45aeb58d44f206a3cbd4" alt="What is Qbify?" class="object-contain w-full rounded-none aspect-[1.8] max-md:max-w-full" />
+          <div class="flex flex-col justify-center items-start px-6 py-5 w-full bg-white rounded-none border-r border-b border-l border-orange-600 min-h-[300px] max-md:px-5 max-md:max-w-full">
+            <div class="flex flex-col max-w-full w-[324px] h-[288px]">
+              <div class="flex flex-col w-full">
+                <p class="text-base text-black">Learn More</p>
+                <div class="flex flex-col w-full">
+                  <h3 class="text-2xl font-semibold text-violet-950">
+                    What is Qbify?
+                  </h3>
+                  <p class="mt-1.5 text-base font-light text-black">
+                    Lorem ipsum dolor sit amet. Cum quaerat harum quo iste nihil aut alias odit.
+                    Sed perferendis dolor est autem sunt ut
+                  </p>
+                </div>
+              </div>
+              <button class=" hover:bg-rose-500 hover:text-white gap-2.5 self-stretch px-0 py-3 mt-20 max-w-full text-base font-semibold text-rose-500 bg-white rounded-3xl border border-rose-500 border-solid min-h-[45px] w-[125px] max-md:mt-10">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="flex flex-col grow shrink self-stretch my-auto min-w-[240px] w-[360px] max-md:max-w-full hover:scale-105 transition-transform duration-300">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/12df17c2f1eb1c8b6950fd739520d51a0bff5f787b17f35ded4b39075ba737ce?placeholderIfAbsent=true&apiKey=f814d152556d45aeb58d44f206a3cbd4" alt="Internet Installation" class="object-contain w-full rounded-none aspect-[1.8] max-md:max-w-full" />
+          <div class="flex flex-col justify-center items-start px-6 py-5 w-full bg-white rounded-none border-r border-b border-l border-orange-600 min-h-[300px] max-md:px-5 max-md:max-w-full">
+            <div class="flex flex-col max-w-full w-[324px] h-[288px]">
+              <div class="flex flex-col w-full">
+                <p class="text-base text-black">Learn More</p>
+                  <div class="flex flex-col w-full">
+                    <h3 class="text-2xl font-semibold text-violet-950">
+                      Internet Installation
+                    </h3>
+                    <p class="mt-1.5 text-base font-light text-black">
+                      Lorem ipsum dolor sit amet. Cum quaerat harum quo iste nihil aut alias odit.
+                      Sed perferendis dolor est autem sunt ut voluptatem recusandae sit deserunt fugit
+                    </p>
+                  </div>
+                </div>
+                <button class=" hover:bg-rose-500 hover:text-white gap-2.5 self-stretch px-0 py-3 mt-14 max-w-full text-base font-semibold text-rose-500 bg-white rounded-3xl border border-rose-500 border-solid min-h-[45px] w-[125px] max-md:mt-10">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </article>
+        </div> 
+      </main>
+      <section class="flex flex-col justify-center items-center px-9 py-16 mt-16 w-full bg-neutral-200 min-h-[489px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
+        <div class="flex flex-col w-full max-w-[1360px] max-md:max-w-full">
+          <div class="flex flex-col self-center max-w-full w-[335px]">
+            <h2 class="text-4xl font-bold text-violet-950 text-center">
+              Trending Videos
+            </h2>
+            <div class="flex gap-2.5 items-center self-center mt-1.5">
+              <div class="flex shrink-0 self-stretch my-auto h-2.5 bg-rose-500 w-[200px]"></div>
+              <div class="flex shrink-0 self-stretch my-auto w-2.5 h-2.5 bg-rose-500 rounded-full"></div>
+              <div class="flex shrink-0 self-stretch my-auto w-2.5 h-2.5 bg-rose-500 rounded-full"></div>
+              <div class="flex shrink-0 self-stretch my-auto w-2.5 h-2.5 bg-rose-500 rounded-full"></div>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-10 justify-center items-center mt-10 w-full max-md:mt-10 max-md:max-w-full">
+            <iframe class="flex grow shrink self-stretch my-auto w-80 rounded-3xl border-2 border-black border-solid bg-zinc-300 h-[250px] min-w-[240px]" width="560" height="315" src="https://www.youtube.com/embed/rgmessKQUpg?si=w1y0119LG2zGK8_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="flex grow shrink self-stretch my-auto w-80 rounded-3xl border-2 border-black border-solid bg-zinc-300 h-[250px] min-w-[240px]" width="560" height="315" src="https://www.youtube.com/embed/rgmessKQUpg?si=w1y0119LG2zGK8_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="flex grow shrink self-stretch my-auto w-80 rounded-3xl border-2 border-black border-solid bg-zinc-300 h-[250px] min-w-[240px]" width="560" height="315" src="https://www.youtube.com/embed/rgmessKQUpg?si=w1y0119LG2zGK8_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+          </div>
+        </div>
+      </section>
+    </section>
+    <button (click)="toggleFeedback()">
+      <div class="fixed right-0 bottom-10 z-20 flex flex-col justify-center bg-rose-500 h-40 w-[30px] rounded-tl-md rounded-bl-md shadow-[0px_4px_15px_rgba(58,25,81,1)]">
+        <img src="assets/images/comment.png" alt="Comment Icon" class="w-5 h-5 ml-2 mb-16">
+        <p class="text-white text-sm -rotate-90">FEEDBACK</p>
+      </div>  
+    </button>
+    <app-footer></app-footer>
 </div>
