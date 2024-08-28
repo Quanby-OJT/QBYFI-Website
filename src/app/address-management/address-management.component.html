@@ -1,0 +1,136 @@
+<div
+  class="flex flex-col pb-2.5 text-center rounded-none shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+>
+  <div
+    class="flex flex-wrap gap-5 justify-between items-center px-12 w-full bg-white max-md:px-5 max-md:max-w-full"
+  >
+    <div class="self-stretch my-auto text-2xl font-light text-pink-700">
+      ←
+      <span routerLink="/landing-page" class="underline cursor-pointer">Back to Home</span>
+    </div>
+    <img
+      loading="lazy"
+      srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc"
+      class="object-contain shrink-0 self-start max-w-full aspect-[1.09] w-[120px]"
+    />
+    <button
+      routerLink="/logout"
+      class="gap-2.5 self-stretch px-8 py-3.5 my-auto text-sm text-white whitespace-nowrap rounded-3xl bg-zinc-700 min-h-[45px] max-md:px-5"
+    >
+      LOGOUT
+    </button>
+  </div>
+</div>
+      <br>
+      <div class="ml-10 flex flex-row space-x-6">
+        <div class="flex flex-col text-xl rounded-[10px] overflow-hidden text-white w-[360px]">
+          <div class="gap-2 self-stretch px-6 py-6 font-semibold text-center bg-zinc-700 min-h-[80px]">
+            Welcome, Jose Rizal
+          </div>
+          <div class="flex flex-col justify-center items-start px-6 py-3 w-full font-light text-black bg-zinc-300 min-h-[160px]">
+            <div class="flex flex-col items-start w-full">
+              <a routerLink="/profile-settings" class="mt-4 text-center hover:underline font-thin mb-2">Your Account</a>
+              <a routerLink="/change-email" class="mt-4 text-center hover:underline font-thin mb-2">Change Email Address</a>
+              <a routerLink="/change-password" class="mt-4 text-center hover:underline font-thin mb-2">Change Password</a>
+              <a routerLink="/address-book" class="mt-4 text-center hover:underline font-thin text-pink-700 mb-2">Address Book</a>
+              <a routerLink="/inbox" class="mt-4 text-center hover:underline font-thin mb-2">Inbox</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-start max-w-[536px]">
+          <div class="mt-0 text-3xl font-medium text-pink-700">Address Book</div>
+          <div class="mt-3.5 text-2xl font-medium text-pink-700">
+            Address Management
+          </div>
+          <div class="flex flex-col ml-36 w-full max-w-[415px]">
+            <div class="container">
+              <div class="form-group">
+                <label for="description" class="form-label">Description *</label>
+                <input type="text" id="description" class="form-input" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" id="address" class="form-input" placeholder="Room Unit Stall">
+              </div>
+          
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Building Floor">
+              </div>
+          
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Lot House No.">
+              </div>
+          
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Street">
+              </div>
+          
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Barangay">
+              </div>
+          
+              <div class="form-group">
+                <label for="province" class="form-label">Province *</label>
+                <input type="text" id="province" class="form-input" required placeholder="Province">
+              </div>
+          
+              <div class="form-group">
+                <label for="city" class="form-label">City *</label>
+                <input type="text" id="city" class="form-input" required placeholder="City">
+              </div>
+          
+              <div class="form-group">
+                <label for="zipcode" class="form-label">Zip Code *</label>
+                <input
+                  type="text"
+                  id="zipcode"
+                  class="form-input"
+                  required
+                  placeholder="Enter Zip Code"
+                  pattern="[0-9]{5,10}"
+                  title="Please enter a valid zip code with 5 to 10 digits"
+                  (input)="validateZipCode($event)"
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-start px-6 ml-36 w-full max-md:px-5">
+            <div class="text-xs font-[275] text-neutral-900">
+              Note: ( * ) denotes required field.
+            </div>
+            <div class="flex gap-4 mt-6 w-full text-sm text-center text-white">
+              <button (click)="saveAddress()" class="px-8 py-3.5 bg-pink-700 rounded-3xl min-h-[45px] max-md:px-5 hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 transition-colors">
+                SAVE
+              </button>              
+              <button 
+              routerLink="/address-book" 
+              class="px-8 py-3.5 bg-zinc-700 rounded-3xl min-h-[45px] max-md:px-5 hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-opacity-50 transition-colors"
+            >
+              BACK
+            </button>
+            
+            </div>
+          </div>
+        </div>
+
+
+<!-- Modal Structure -->
+<div *ngIf="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+    <h2 class="text-xl font-semibold mb-4">Success</h2>
+    <p class="mb-4">Your address has been successfully saved.</p>
+    <div class="flex justify-end">
+      <button (click)="closeModal()" class="px-4 py-2 bg-pink-700 text-white rounded-lg hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 transition-colors">
+        OK
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Existing HTML content -->
+
+        
+
+
+

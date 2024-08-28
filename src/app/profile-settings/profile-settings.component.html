@@ -1,0 +1,165 @@
+<div
+  class="flex flex-col pb-2.5 text-center rounded-none shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+>
+  <div
+    class="flex flex-wrap gap-5 justify-between items-center px-12 w-full bg-white max-md:px-5 max-md:max-w-full"
+  >
+    <div class="self-stretch my-auto text-2xl font-light text-pink-700">
+      ←
+      <span routerLink="/landing-page" class="underline cursor-pointer">Back to Home</span>
+    </div>
+    <img
+      loading="lazy"
+      srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/74bda4516d8405197c60c6976f7bf31f2a271677e40fcb1fbdb2896761a2fb3d?placeholderIfAbsent=true&apiKey=cf984b25863544df9e246b013e059ebc"
+      class="object-contain shrink-0 self-start max-w-full aspect-[1.09] w-[120px]"
+    />
+    <div class="flex gap-2.5">
+      <button
+        routerLink="/profile"
+        class="gap-2.5 self-stretch px-8 py-3.5 my-auto text-sm text-white whitespace-nowrap rounded-3xl bg-pink-700 min-h-[45px] max-md:px-5"
+      >
+        PROFILE
+      </button>
+      <button
+        routerLink="/logout"
+        class="gap-2.5 self-stretch px-8 py-3.5 my-auto text-sm text-white whitespace-nowrap rounded-3xl bg-zinc-700 min-h-[45px] max-md:px-5"
+      >
+        LOGOUT
+      </button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="ml-10 mt-5 flex flex-row space-x-6">
+  <div class="flex flex-col text-xl rounded-[10px] overflow-hidden text-white w-[360px]">
+    <div class="gap-2 self-stretch px-6 py-6 font-semibold text-center bg-zinc-700 min-h-[80px]">
+      Welcome, Jose Rizal
+    </div>
+    <div class="flex flex-col justify-center items-start px-6 py-3 w-full font-light text-black bg-zinc-300 min-h-[160px]">
+      <div class="flex flex-col items-start w-full">
+        <a routerLink="/profile-settings" class="mt-4 text-center hover:underline text-pink-700 font-thin mb-2">Your Account</a>
+        <a routerLink="/change-email" class="mt-4 text-center hover:underline font-thin mb-2">Change Email Address</a>
+        <a routerLink="/change-password" class="mt-4 text-center hover:underline font-thin mb-2">Change Password</a>
+        <a routerLink="/address-book" class="mt-4 text-center hover:underline font-thin mb-2">Address Book</a>
+        <a routerLink="/inbox" class="mt-4 text-center hover:underline font-thin mb-2">Inbox</a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="flex flex-col font-medium max-w-[552px]">
+    <div
+      class="flex flex-col items-end pr-14 pl-2.5 w-full text-neutral-800 max-md:pr-5 max-md:max-w-full"
+    >
+      <div class="flex overflow-hidden flex-col self-start text-pink-700">
+        <div class="text-3xl">Profile</div>
+        <div class="self-start text-base text-center">
+          Personal Information
+        </div>
+      </div>
+     <div class="flex flex-col gap-6 px-5">
+      <div class="flex items-center mt-3 text-xs gap-4">
+        <label for="firstName" class="w-[94px] text-neutral-800">First Name *</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          required
+          class="flex-grow px-3 py-2 rounded-3xl border border-solid bg-white bg-opacity-70 border-neutral-500 h-[47px]"
+          placeholder="Enter your first name"
+        />
+      </div>
+      <div class="flex items-center text-xs gap-4">
+        <label for="lastName" class="w-[94px] text-neutral-800">Last Name *</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+          class="flex-grow px-3 py-2 rounded-3xl border border-solid bg-white bg-opacity-70 border-neutral-500 h-[47px]"
+          placeholder="Enter your last name"
+        />
+      </div>
+      <div class="overflow-hidden gap-2.5 self-start text-base text-center text-stone-900">
+        Other Information
+      </div>
+      <div class="flex items-center text-xs gap-4">
+        <label for="mobileNo" class="w-[94px] text-neutral-800">Mobile No.</label>
+        <input
+          type="tel"
+          id="mobileNo"
+          name="mobileNo"
+          class="flex-grow px-3 py-2 rounded-3xl border border-solid bg-white bg-opacity-70 border-neutral-500 h-[47px]"
+          placeholder="Enter your mobile number"
+        />
+      </div>
+      <div class="flex items-center text-xs gap-4">
+        <label for="landlineNo" class="w-[94px] text-neutral-800">Landline No.</label>
+        <input
+          type="tel"
+          id="landlineNo"
+          name="landlineNo"
+          class="flex-grow px-3 py-2 rounded-3xl border border-solid bg-white bg-opacity-70 border-neutral-500 h-[47px]"
+          placeholder="Enter your landline number"
+        />
+      </div>
+      <div class="flex items-center text-xs gap-4">
+        <label for="dob" class="w-[94px] text-neutral-800">Date of Birth</label>
+        <input
+          type="date"
+          id="dob"
+          name="dob"
+          class="flex-grow rounded-3xl border border-solid bg-white bg-opacity-70 border-neutral-500 h-[47px]"
+        />
+      </div>
+      <div class="flex items-center text-xs gap-4">
+        <div class="w-[77px] text-neutral-800">Gender *</div>
+        <div class="flex gap-4">
+          <div class="flex ml-5 items-center">
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              class="mr-2"
+            />
+            <label for="male" class="flex items-center">
+              <span>Male</span>
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              class="mr-2"
+            />
+            <label for="female" class="flex items-center">
+              <span>Female</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        (click)="openModal()"
+        class="self-center ml-8 px-4 py-2 mt-2 text-sm text-center text-white bg-pink-700 rounded-3xl min-h-[35px] w-[100px] max-md:px-3 max-md:mt-5"
+      >
+        SUBMIT
+      </button>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm mx-auto">
+    <h3 class="text-lg font-semibold text-center mb-4">Confirmation</h3>
+    <p class="text-center mb-4">Your information has been submitted successfully!</p>
+    <div class="flex justify-center">
+      <button (click)="closeModal()" class="bg-pink-700  text-white px-4 py-2 rounded-3xl">Close</button>
+    </div>
+  </div>
+</div>
+
+

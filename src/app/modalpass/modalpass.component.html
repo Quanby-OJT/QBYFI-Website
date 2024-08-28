@@ -1,0 +1,10 @@
+<div class="modal-background" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeModal()">X</button>
+      <div class="modal-body">
+        <p>Your password has been successfully changed!</p>
+        <button class="confirm-button mt-10" (click)="confirm()">OK</button>
+      </div>
+    </div>
+  </div>
+  

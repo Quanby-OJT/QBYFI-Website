@@ -20,6 +20,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
+import { ProfileSComponent } from './profile/profile.component';
+import { SuccessModalComponent } from './success-modal/success-modal.component';
+import { ChangeEmailComponent } from './change-email/change-email.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ModalPassComponent } from './modalpass/modalpass.component';
+import { AddressBookComponent } from './address-book/address-book.component';
+import { AddressManagementComponent } from './address-management/address-management.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +46,16 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     RegulatorycomplianceComponent,
     TechnologicalinnovationComponent,
     DatasecurityandprivacyComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProfileSComponent,
+    SuccessModalComponent,
+    ChangeEmailComponent,
+    ChangePasswordComponent,
+    ModalPassComponent,
+    AddressBookComponent,
+    AddressManagementComponent,
+    InboxComponent,
+    ProfileSettingsComponent
   ],
   imports: [
     BrowserModule,

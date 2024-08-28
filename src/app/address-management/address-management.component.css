@@ -1,0 +1,24 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #1c1917;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #6b7280;
+    border-radius: 1.5rem;
+  }
+  
