@@ -37,7 +37,7 @@ export class ContactFormComponent {
     window.open(url);
   }
 
-  navigateToHeaderContact() {
-    this.router.navigate(['/headercontact']);
+  navigateToContactPage() {
+    this.router.navigate(['/contact-page']);
   }
 }

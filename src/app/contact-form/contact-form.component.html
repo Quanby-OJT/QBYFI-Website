@@ -67,9 +67,8 @@
               <textarea
                 class="flex z-10 flex-col items-start self-start px-12 py-4 text-black bg-white border border-solid border-black border-opacity-50 font-[250] min-h-[224px] w-full max-md:pb-24 max-md:max-w-full resize-y rounded-none"
                 placeholder="Tell us about your project"
+                aria-label="Tell us about your project"
               ></textarea>
-              <div class="absolute inset-0 mt-4">
-              </div>
             </div>
           <div class="flex z-10 flex-wrap gap-10 items-start w-full text-base text-black font-[250] max-md:max-w-full mt-2">
             <div class="flex flex-auto gap-1 items-start mt-2.5">
@@ -114,7 +113,7 @@
             <button class="gap-2.5 self-stretch px-7 py-1.5 text-white font-semibold bg-pink-600 min-h-[39px] rounded-[50px] max-md:px-5 hover:bg-pink-800" (click)="openModal()">
               Send
             </button>
-            <button class="gap-2.5 self-stretch px-5 py-1.5 text-black border border-black border-solid bg-neutral-200 font-[250] min-h-[39px] rounded-[50px] hover:bg-red-500" (click)="navigateToHeaderContact()">
+            <button class="gap-2.5 self-stretch px-5 py-1.5 text-black border border-black border-solid bg-neutral-200 font-[250] min-h-[39px] rounded-[50px] hover:bg-red-500" (click)="navigateToContactPage()">
               Cancel
             </button>
           </div>

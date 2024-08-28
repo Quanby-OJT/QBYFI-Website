@@ -2,7 +2,7 @@
 <app-header class="z-10 fixed top-0 left-0 w-full"></app-header>
 <div class="flex flex-col rounded-none pt-[100px]">
   <h2
-    class="self-start text-xl mt-10 font-semibold text-indigo-900 text-opacity-80 max-md:max-w-full pl-10"
+    class="self-start text-xl mt-5 font-semibold text-indigo-900 text-opacity-80 max-md:max-w-full pl-10"
   >
     SUBSCRIBE NOW AND EXPERIENCE THE POWER OF PURE FIBER
   </h2>
@@ -102,29 +102,33 @@
             <span class="text-black">+052-431-1169 / 0927 478 6102</span>
         </div>
         <div class="flex gap-1.5 mt-3 text-2xl whitespace-nowrap items-center">
-  <img
-    loading="lazy"
-    src="https://cdn.builder.io/api/v1/image/assets/TEMP/d0e0c1bdf343b49cf43504ab50a31816e81eb3b6a6fe4f92ebb078cb4bae7d38?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
-    alt="Hours Icon"
-    class="object-contain shrink-0 aspect-square w-[30px]"
-  />
-  <h2 class="text-2xl font-semibold">Hours</h2>
-</div>
-<div class="flex flex-col ml-5 max-md:ml-2.5">
-  <select id="hours-dropdown" class="bg-white border rounded-md px-3 py-2 text-lg">
-    <option value="mon">Mon 09:00 am – 05:00 pm</option>
-    <option value="tue">Tue 09:00 am – 05:00 pm</option>
-    <option value="wed">Wed 09:00 am – 05:00 pm</option>
-    <option value="thu">Thu 09:00 am – 05:00 pm</option>
-    <option value="fri">Fri 09:00 am – 05:00 pm</option>
-    <option value="sat">Sat Closed</option>
-    <option value="sun">Sun Closed</option>
-  </select>
-</div>
-
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/d0e0c1bdf343b49cf43504ab50a31816e81eb3b6a6fe4f92ebb078cb4bae7d38?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+              alt="Hours Icon"
+              class="object-contain shrink-0 aspect-square w-[30px]"
+            />
+            <h2 class="text-2xl font-semibold">Hours</h2>
+          </div>
+          <div class="flex flex-col ml-5 max-md:ml-2.5">
+            <select
+              id="hours-dropdown"
+              class="bg-white border rounded-md px-3 py-2 text-lg"
+              (change)="onDropdownChange($event)"
+            >
+              <option
+                *ngFor="let hour of hours"
+                [value]="hour.value"
+                [ngClass]="{'highlighted': hour.value === currentDay}"
+              >
+                {{ hour.label }}
+              </option>
+            </select>
+          </div>
+          
         <a
           routerLink="/contact-form"
-          class="gap-2.5 self-center p-2.5 mt-14 text-3xl font-bold text-white bg-pink-700 rounded max-md:mt-10 transition-transform transform hover:scale-105 hover:bg-pink-600"
+          class="gap-2.5 self-center p-2.5 mt-14 text-3xl font-bold text-white bg-pink-600 rounded max-md:mt-10 transition-transform transform hover:scale-105 hover:bg-pink-600"
           >GET IN TOUCH</a
         >
       </section>
