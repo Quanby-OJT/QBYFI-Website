@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -47,13 +48,9 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     ModalComponent,
     LoadingComponent,
     FeedbackComponent,
-    LocationAvailabilityComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
+    LocationAvailabilityComponent,
+    CommonModule,
   ],
   providers: [
     provideClientHydration()
