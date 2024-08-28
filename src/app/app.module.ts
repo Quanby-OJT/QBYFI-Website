@@ -47,6 +47,9 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
     TechnologicalinnovationComponent,
     DatasecurityandprivacyComponent,
     LoadingComponent,
+    HeaderlogComponent,
+    FeedbackComponent,
+    LocationAvailabilityComponent,
     ProfileSComponent,
     SuccessModalComponent,
     ChangeEmailComponent,
@@ -61,11 +64,7 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HeaderlogComponent,
-    ModalComponent,
-    LoadingComponent,
-    FeedbackComponent,
-    LocationAvailabilityComponent,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()
