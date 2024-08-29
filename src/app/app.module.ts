@@ -37,17 +37,16 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     RegulatorycomplianceComponent,
     TechnologicalinnovationComponent,
     DatasecurityandprivacyComponent,
-    LoadingComponent
+    LoadingComponent,
+    HeaderlogComponent,  
+    FeedbackComponent,  
+    LocationAvailabilityComponent  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HeaderlogComponent,
-    ModalComponent,
-    LoadingComponent,
-    FeedbackComponent,
-    LocationAvailabilityComponent,
+    ReactiveFormsModule  
   ],
   providers: [
     provideClientHydration()
