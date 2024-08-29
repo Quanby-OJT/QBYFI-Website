@@ -100,4 +100,21 @@
   display: block;
 }
 
+  /* contact-page.component.css */
+.highlighted {
+    color: #C70755;
+    font-weight: bold;
+  }
+  
+  .modal {
+    /* Modal styles here, e.g., position, background, padding */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    z-index: 1000;
+  }
   

@@ -35,8 +35,8 @@ export class ContactFormComponent {
     this.attachedFiles.splice(index, 1);
   }
 
-  navigateToHeaderContact() {
-    this.router.navigate(['/headercontact']);
+  navigateToContactPage() {
+    this.router.navigate(['/contact-page']);
   }
 
   async submitForm() {
