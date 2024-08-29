@@ -14,6 +14,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: 'landing-page', component: LandingPageComponent },

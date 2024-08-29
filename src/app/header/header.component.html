@@ -5,8 +5,8 @@
         <a (click)="onLandingPageClick()"><img class="w-16 md:w-20" src="assets/images/LOGO.png" alt="logo"></a>
         <ul class="hidden md:flex space-x-8 ml-auto mr-8" *ngIf="shouldShowSignIn()">
             <!--<li><a (click)="onResidentialClick()" class="font-['Poppins'] hover:text-violet-700">RESIDENTIAL</a></li>-->
-            <li><a (click)="onProductsClick()" class="font-['Poppins'] hover:text-violet-700">PRODUCTS</a></li>
-            <li><a (click)="onContactUsClick()" class="font-['Poppins'] hover:text-violet-700">CONTACT US</a></li>
+            <li><a (click)="onProductsClick()" class="font-['Poppins'] hover:text-violet-700" style="cursor: pointer;">PRODUCTS</a></li>
+            <li><a (click)="onContactUsClick()" class="font-['Poppins'] hover:text-violet-700" style="cursor: pointer;">CONTACT US</a></li>
         </ul>
         <i class="bx bx-menu text-3xl cursor-pointer md:hidden" (click)="toggleMenu()"></i>
     </header>

@@ -93,6 +93,7 @@ export class HeaderComponent {
       this.router.navigate(['/about-us']); 
     }, 500); 
   }
+
   onSubscribeClick() {
     this.isLoading = true; 
     setTimeout(() => {
