@@ -93,6 +93,13 @@ export class HeaderComponent {
       this.router.navigate(['/about-us']); 
     }, 500); 
   }
+  onProfileClick() {
+    this.isLoading = true; 
+    setTimeout(() => {
+      this.isLoading = false;
+      this.router.navigate(['/profile']); 
+    }, 500); 
+  }
   onSubscribeClick() {
     this.isLoading = true; 
     setTimeout(() => {

@@ -13,6 +13,13 @@ import { CustomersupportComponent } from './customersupport/customersupport.comp
 import { LoadingComponent } from './loading/loading.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
+import { ProfileSComponent } from './profile/profile.component';
+import { ChangeEmailComponent } from './change-email/change-email.component'
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AddressBookComponent } from './address-book/address-book.component';
+import { AddressManagementComponent } from './address-management/address-management.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -29,6 +36,13 @@ const routes: Routes = [
   {path: 'loading', component: LoadingComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'location-availability', component: LocationAvailabilityComponent},
+  {path: 'profile', component: ProfileSComponent},
+  {path: 'change-email', component: ChangeEmailComponent},
+  {path: 'change-password', component: ChangePasswordComponent},
+  {path: 'address-book', component: AddressBookComponent},
+  {path: 'address-management', component: AddressManagementComponent},
+  {path: 'inbox', component: InboxComponent},
+  {path: 'profile-settings', component: ProfileSettingsComponent},
   // Define routes for other components 
   { path: '**', redirectTo: '/landing-page' } // Default route
 ];
