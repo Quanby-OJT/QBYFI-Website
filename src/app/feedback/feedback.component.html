@@ -1,9 +1,9 @@
 <app-loading *ngIf="isLoading" class="z-50"></app-loading>
-<div class="fixed inset-0 z-30 flex justify-center items-center bg-black bg-opacity-50">
-    <main class="flex relative gap-2.5 items-center justify-center">
-        <div class="px-3 py-3 items-center justify-center bg-white rounded-2xl border border-black border-solid w-[453px] mt-20">
-            <section class="flex z-0 flex-col justify-center items-center px-6 pt-5 pb-10 my-auto bg-white rounded-2xl border border-black border-solid min-h-[604px] min-w-[240px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[426px]">
-        <button (click)="reloadPage()" class=" gap-2.5 self-stretch py-2.5 max-w-full text-sm text-pink-700 whitespace-nowrap w-[360px] text-start">
+<div *ngIf="isFormVisible" class="fixed inset-0 z-30 flex justify-center items-center bg-black bg-opacity-50 modal-background" (click)="onBackgroundClick($event)">
+  <main class="flex relative gap-2.5 items-center justify-center" (click)="$event.stopPropagation()">
+    <div class="px-3 py-3 items-center justify-center bg-white rounded-2xl border border-black border-solid w-[453px] mt-20">
+      <section class="flex z-0 flex-col justify-center items-center px-6 pt-5 pb-10 my-auto bg-white rounded-2xl border border-black border-solid min-h-[604px] min-w-[240px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[426px]">
+        <button (click)="reloadPage()" class="gap-2.5 self-stretch py-2.5 max-w-full text-sm text-pink-700 whitespace-nowrap w-[360px] text-start">
           Back
         </button>
         <form (submit)="onSubmit()" class="flex flex-col mt-5 max-w-full w-[376px]">
@@ -84,38 +84,34 @@
                   alt="Very Good"
                 />
               </div>
-          
+
               <div class="flex gap-5 justify-between text-xs font-bold text-emerald-200">
-                <div [ngClass]="{'text-teal-800': selectedRating === 1}">Worst</div>
-                <div [ngClass]="{'text-teal-800': selectedRating === 2}" class="text-center">Not<br />Good</div>
-                <div [ngClass]="{'text-teal-800': selectedRating === 3}" class="text-center">Fine</div>
-                <div [ngClass]="{'text-teal-800': selectedRating === 4}" class="text-center">Look<br />Good</div>
-                <div [ngClass]="{'text-teal-800': selectedRating === 5}">Very<br />Good</div>
-              </div>
-          
-              <div class="flex gap-0 mt-4 items-center self-start">
-                <div class="w-96 h-2 bg-zinc-300 rounded-3xl">
-                  <div
-                    class="flex bg-pink-700 rounded-3xl min-h-[8px]"
-                    [ngStyle]="{'width': progressWidth + '%'}"
-                  ></div>
-                </div>
+                <div [ngClass]="{'text-pink-700': selectedRating === 1}">Worst</div>
+                <div [ngClass]="{'text-pink-700': selectedRating === 2}" class="text-center">Not Good</div>
+                <div [ngClass]="{'text-pink-700': selectedRating === 3}" class="text-center">Fine</div>
+                <div [ngClass]="{'text-pink-700': selectedRating === 4}" class="text-center">Look Good</div>
+                <div [ngClass]="{'text-pink-700': selectedRating === 5}">Very Good</div>
               </div>
             </div>
           </fieldset>
-            <div class="flex flex-col w-full mt-8">
-              <div class="flex flex-col py-1 pr-1 pl-1 bg-white rounded-lg border border-solid shadow-sm border-zinc-500">
-                <textarea id="feedback" [(ngModel)]="feedbackData.feedback" name="feedback" placeholder="Share your feedback here..." class="flex flex-col w-full text-xs font-medium min-h-[85px] text-neutral-400"></textarea>
-              </div>
-            </div>
-        
-            <div class="flex justify-center items-center mt-5">
-                <button type="submit" class="flex justify-center items-center text-sm font-bold text-white whitespace-nowrap w-[350px] px-3 py-3.5 bg-pink-700 rounded-lg min-h-[45px] min-w-[240px] shadow-[1px_2px_2px_rgba(0,0,0,0.4)]">
-                  SUBMIT
-                </button>
-              </div>
-              
+          <div class="flex flex-col mt-8">
+            <label for="feedback" class="text-sm font-bold text-pink-700">Feedback</label>
+            <textarea
+              id="feedback"
+              [(ngModel)]="feedbackData.feedback"
+              name="feedback"
+              class="gap-2.5 self-stretch px-2.5 py-3.5 mt-1.5 max-w-full h-24 text-xs italic whitespace-nowrap bg-white border border-solid rounded-lg shadow-sm border-zinc-500 text-zinc-500"
+              placeholder="Input your feedback"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="gap-2.5 self-stretch py-2.5 mt-10 text-l sty text-pink-700 border-2 border-solid border-pink-700 rounded-md"
+          >
+            Submit Feedback
+          </button>
         </form>
-      </section></div>
-    </main>
+      </section>
+    </div>
+  </main>
 </div>

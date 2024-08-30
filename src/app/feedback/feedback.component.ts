@@ -11,6 +11,7 @@ export class FeedbackComponent {
   selectedRating = 0;
   progressWidth = 0;
   isLoading = false;
+  isFormVisible = true; // Variable to control form visibility
 
   feedbackData = {
     name: '',
@@ -66,6 +67,8 @@ export class FeedbackComponent {
         title: 'Feedback Submitted',
         text: 'Thank you for your feedback!',
         confirmButtonText: 'OK'
+      }).then(() => {
+        this.closeForm(); // Close the form after successful submission
       });
     } else {
       Swal.fire({
@@ -77,14 +80,21 @@ export class FeedbackComponent {
     }
   }
 
-  
   reloadPage() {
     this.isLoading = true; 
     setTimeout(() => {
       this.isLoading = false;
-     
-        window.location.reload();
-     
+      window.location.reload();
     }, 3000); 
+  }
+
+  closeForm(): void {
+    this.isFormVisible = false; // Hide the form
+  }
+
+  onBackgroundClick(event: MouseEvent): void {
+    if ((event.target as HTMLElement).classList.contains('modal-background')) {
+      this.closeForm();
+    }
   }
 }
