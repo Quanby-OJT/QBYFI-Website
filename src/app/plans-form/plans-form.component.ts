@@ -9,6 +9,8 @@ import { SupabaseService } from '../supabase/supabase.service'; // Adjust path i
 
 export class PlansFormComponent implements OnInit {
   data: any[] = [];
+  plans: any[] = [];
+  selectedPlan: string | null = null; // Add this line
 
   constructor(private supabaseService: SupabaseService) {}
 
@@ -24,4 +26,15 @@ export class PlansFormComponent implements OnInit {
       console.error('Error fetching data:', error);
     }
   }
+
+  onSubmit(): void {
+    if (this.selectedPlan) {
+      console.log('Selected plan:', this.selectedPlan);
+      // Logic to handle the selected plan submission
+    } else {
+      console.error('No plan selected.');
+    }
+  }
+
+  
 }

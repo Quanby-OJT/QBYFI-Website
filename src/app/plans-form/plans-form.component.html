@@ -1,180 +1,106 @@
-<div class="flex items-center justify-center mt-10 mb-10">
-    <div class="flex flex-col justify-center items-center px-5 py-7 font-semibold rounded-xl border border-black border-solid bg-white bg-opacity-50 max-w-[1000px]">
-      <div class="flex flex-col max-w-full w-[850px]">
+<form action="">
+    <div class="flex items-center justify-center mt-10 mb-10">
+        <div class="flex flex-col justify-center items-center px-5 py-7 font-semibold rounded-xl border border-black border-solid bg-white bg-opacity-50 max-w-[1000px]">
+        <div class="flex flex-col max-w-full w-[850px]">
 
-        <div class="flex flex-col font-semibold">
-            <div class="text-xl text-violet-950">Choose Plan</div>
-            <div class="text-sm text-black text-opacity-90">
-              Get ready to experience speed
+            <div class="flex flex-col font-semibold">
+                <div class="text-xl text-violet-950">Choose Plan</div>
+                <div class="text-sm text-black text-opacity-90">
+                Get ready to experience speed
+                </div>
             </div>
-          </div>
 
-          <div class="flex flex-col font-semibold text-black max-w-[642px] mt-5 ml-5">
-            <div class="flex flex-col w-full max-md:max-w-full">
-              <div class="text-lg max-md:max-w-full">
-                Let’s get you started with getting the faster and stronger fiber
-                internet.
-              </div>
-              <div class="text-sm max-md:max-w-full">
-                Checkout available promos for amazing discounts and benefits!
-              </div>
+            <div class="flex flex-col font-semibold text-black max-w-[642px] mt-5 ml-5">
+                <div class="flex flex-col w-full max-md:max-w-full">
+                <div class="text-lg max-md:max-w-full">
+                    Let’s get you started with getting the faster and stronger fiber
+                    internet.
+                </div>
+                <div class="text-sm max-md:max-w-full">
+                    Checkout available promos for amazing discounts and benefits!
+                </div>
+                </div>
+                <div class="mt-3.5 text-lg max-md:max-w-full">Preferred Plan</div>
             </div>
-            <div class="mt-3.5 text-lg max-md:max-w-full">Preferred Plan</div>
-          </div>
-          
-          <form action="">
-            <div *ngFor="let bundle of data" class="flex flex-wrap gap-10 items-center font-semibold">
-            <div class="flex gap-2.5 justify-center items-center self-stretch px-6 py-6 my-auto bg-white rounded-md border border-white border-solid min-h-[432px] min-w-[240px] shadow-[0px_4px_4px_rgba(0,0,0,0.6)] w-[250px] max-md:px-5">
-                <div class="flex flex-col self-stretch my-auto w-[200px]">
-                <div class="flex flex-col self-center max-w-full w-[150px]">
-                    <div class="flex flex-col w-full text-neutral-700">
-                    <div class="self-center text-xs">Plan Name</div>
-                    <div class="text-base">{{bundle.name}}</div>
-                    </div>
-                    <div class="flex flex-col pr-2.5 pl-3 mt-6 w-full">
-                    <div class="text-3xl text-rose-500">
-                        300
-                        <span class="text-2xl text-rose-500">Mbps</span>
-                    </div>
-                    <div class="text-xs text-center text-violet-950">
-                        Terms and Conditions
-                    </div>
-                    </div>
-                    <img
-                    loading="lazy"
-                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae58258af4823e3ebd2f5fbd88d954b5c203815d75a17035790b44caa618f201?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                    class="object-contain self-center mt-6 aspect-[1.09] w-[84px]"
-                    />
-                </div>
-                <div class="flex flex-col mt-11 w-full max-md:mt-10">
-                    <div class="flex flex-col w-full text-xs text-neutral-700">
-                    <div class="flex gap-1 items-center w-full">
-                        <img
-                        loading="lazy"
-                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                        class="object-contain shrink-0 self-stretch my-auto w-2.5 aspect-square"
-                        />
-                        <div class="self-stretch my-auto w-[186px]">
-                        Speed Up to 300 Mbps for Php1,000 per month
-                        </div>
-                    </div>
-                    <div class="flex gap-1 items-start w-full">
-                        <img
-                        loading="lazy"
-                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                        class="object-contain shrink-0 w-2.5 aspect-square"
-                        />
-                        <div class="w-[186px]">
-                        3 months Free internet TV combo w/ local channels
-                        </div>
-                    </div>
-                    <div class="self-start text-center text-black">
-                        Required Upfront Fee:
-                    </div>
-                    </div>
-                    <div class="flex flex-col self-center mt-3.5 max-w-full w-[125px]">
-                    <div
-                        class="flex gap-1 items-center self-center text-base text-black"
-                    >
-                        <img
-                        loading="lazy"
-                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                        class="object-contain shrink-0 self-stretch my-auto aspect-square w-[15px]"
-                        />
-                        <div class="self-stretch my-auto">
-                        1000
-                        <span class="text-xs">/month</span>
-                        </div>
-                    </div>
-                    <div
-                        class="gap-2.5 self-stretch px-7 py-1 mt-2.5 w-full text-xs rounded-3xl border border-solid bg-zinc-300 bg-opacity-0 border-violet-950 min-h-[25px] text-violet-950 max-md:px-5"
-                    >
-                        Select Plan
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div
-                class="flex gap-2.5 justify-center items-center self-stretch px-6 py-6 my-auto bg-white rounded-md border border-white border-solid min-h-[432px] min-w-[240px] shadow-[0px_4px_4px_rgba(0,0,0,0.6)] w-[250px] max-md:px-5"
-            >
-                <div class="flex flex-col self-stretch my-auto w-[200px]">
-                <div class="flex flex-col self-center max-w-full w-[140px]">
-                    <div class="flex flex-col px-2.5 w-full text-neutral-700">
-                    <div class="self-center text-xs">Plan Name</div>
-                    <div class="text-base">QBYFI Nitro 1700</div>
-                    </div>
-                    <div class="flex flex-col mt-6 w-full">
-                    <div class="text-3xl text-rose-500">
-                        500
-                        <span class="text-2xl text-rose-500">Mbps</span>
-                    </div>
-                    <div
-                        class="flex flex-col self-center text-xs text-violet-950 w-[91px]"
-                    >
-                        <div>Terms and Conditions</div>
-                        <img
-                        loading="lazy"
-                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/6a81ab3538186c27fa0c5590ae169bea30cf3b15363bdc7f3396ee9211d9b9ca?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                        class="object-contain mt-6 w-full aspect-[1.18]"
-                        />
-                    </div>
-                    </div>
-                </div>
-                <div class="flex flex-col mt-11 w-full max-md:mt-10">
-                    <div class="flex flex-col w-full text-xs">
-                    <div class="flex flex-col w-full text-neutral-700">
-                        <div class="flex gap-1 items-center w-full">
-                        <img
-                            loading="lazy"
-                            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/9e057d4e18bce4ffde10f5ea8e99b612dc5f5a1bc5e70d4b3d11722aa0f9a393?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                            class="object-contain shrink-0 self-stretch my-auto w-2.5 aspect-square"
-                        />
-                        <div class="self-stretch my-auto w-[186px]">
-                            Speed Up to 500 Mbps for Php1,700 per month
-                        </div>
-                        </div>
-                        <div class="flex gap-1 items-start w-full">
-                        <img
-                            loading="lazy"
-                            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/f629dc23ba687311c72b23989d6c73a522bd4be2c4dbfe7414f8c74976f6c0c6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                            class="object-contain shrink-0 w-2.5 aspect-square"
-                        />
-                        <div class="w-[186px]">
-                            3 months Free internet TV combo w/ local channels
-                        </div>
-                        </div>
-                    </div>
-                    <div class="self-start mt-1.5 text-center text-black">
-                        Required Upfront Fee:
-                    </div>
-                    </div>
-                    <div class="flex flex-col self-center mt-3.5 max-w-full w-[125px]">
-                    <div
-                        class="flex gap-1 items-center self-center text-base text-black"
-                    >
-                        <img
-                        loading="lazy"
-                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/4f65f5999af4f841b2ddc7be86231d7f03d217fbb8d4cecbcffbae04cfbee9f7?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
-                        class="object-contain shrink-0 self-stretch my-auto aspect-square w-[15px]"
-                        />
-                        <div class="self-stretch my-auto">
-                        1700
-                        <span class="text-xs">/month</span>
-                        </div>
-                    </div>
-                    <div
-                        class="gap-2.5 self-stretch px-7 py-1 mt-2.5 w-full text-xs rounded-3xl border border-solid bg-zinc-300 bg-opacity-0 border-violet-950 min-h-[25px] text-violet-950 max-md:px-5"
-                    >
-                        Select Plan
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-          </form>
 
-      </div>
-    </div>
-  </div>  
+            <section class="flex justify-center items-center flex-wrap gap-10 font-semibold">
+                <div class="flex flex-row flex-wrap gap-4 justify-center items-center">
+                    <label 
+                        *ngFor="let bundle of data" 
+                        class="flex flex-col rounded-lg min-w-[240px] w-[250px] cursor-pointer"
+                        [ngClass]="{
+                            'border-2': true,
+                            'border-purple-500': selectedPlan === bundle.name,
+                            'border-gray-300': selectedPlan !== bundle.name
+                        }"
+                    >
+                        <input 
+                            type="radio" 
+                            name="plan" 
+                            [value]="bundle.name"
+                            [(ngModel)]="selectedPlan"
+                            class="sr-only"
+                        />
+                        <div class="flex flex-col gap-2.5 items-center px-6 py-6 bg-white rounded-lg min-h-[432px] shadow-md">
+                            <div class="flex flex-col items-center max-w-full w-[200px]">
+                                <header class="text-neutral-700 text-center">
+                                    <h2 class="text-xs">Plan Name</h2>
+                                    <p class="text-base">{{ bundle.name }}</p>
+                                </header>
+                                <div class="flex flex-col items-center w-full">
+                                    <p class="text-3xl text-rose-500">
+                                        {{ bundle.speed }} <span class="text-2xl text-rose-500">Mbps</span>
+                                    </p>
+                                    <p class="text-xs text-center text-violet-950">
+                                        Terms and Conditions
+                                    </p>
+                                </div>
+                                <img [src]="bundle.image_url" alt="" class="object-contain mt-6 aspect-[1.09] w-[84px]" />
+                            </div>
+                            <div class="flex flex-col mt-11 w-full">
+                                <div class="flex flex-col text-xs text-neutral-700">
+                                    <div class="flex gap-1 items-center">
+                                        <img [src]="bundle.icon1_url" alt="" class="object-contain w-2.5 aspect-square" />
+                                        <p class="w-[186px]">
+                                            {{ bundle.description1 }}
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-1 items-start mt-1">
+                                        <img [src]="bundle.icon2_url" alt="" class="object-contain w-2.5 aspect-square" />
+                                        <p class="w-[186px]">
+                                            {{ bundle.description2 }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="mt-1.5 text-black">Required Upfront Fee:</p>
+                                <div class="flex gap-1 items-center justify-center mt-3.5 text-base text-black">
+                                    <img [src]="bundle.fee_icon_url" alt="Fee Icon" class="object-contain w-[15px]" />
+                                    <p class="flex items-center">
+                                        {{ bundle.upfront_fee }} <span class="text-xs">/month</span>
+                                    </p>
+                                </div>
+                                <button (click)="onSubmit()" type="button" class="gap-2.5 px-7 py-1 mt-2.5 w-full text-xs rounded-3xl border border-solid border-violet-950 bg-zinc-300 bg-opacity-0 text-violet-950">
+                                    Select Plan
+                                </button>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <section class="gap-2.5 self-stretch px-6 py-5 text-xs font-semibold text-black bg-white rounded-md border border-solid shadow-[0px_4px_4px_rgba(0,0,0,0.6)] max-md:px-5">
+                <input 
+                    type="text" 
+                    placeholder="Custom Plan (Please specify)" 
+                    class="w-full px-2 py-1 text-xs font-semibold text-black bg-white border border-solid border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+            </section>
+            
+            
+            
+
+
+        </div>
+        </div>
+    </div>  
+</form>
