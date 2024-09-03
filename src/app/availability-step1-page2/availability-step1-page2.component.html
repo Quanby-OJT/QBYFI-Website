@@ -49,6 +49,78 @@
         </ng-container>
     </nav>
 </div>
+  <!--card form-->
   
+  <main class="flex flex-col justify-center items-center mt-10 px-4 py-11 bg-white rounded-xl border border-black border-solid max-w-[750px] mx-auto">
+    <section class="flex flex-col w-full">
+        <h1 class="text-2xl font-semibold text-center text-black">
+            CHECK AVAILABILITY
+        </h1>
+        <p class="mt-3 text-lg font-semibold text-black">
+            Get the internet that you deserve! Let's start with your basic details!
+        </p>
+        <div class="flex flex-col mt-3 w-full">
+            <input id="search-input" type="text" placeholder="Search for a location" class="flex rounded-md bg-zinc-300 min-h-[28px] w-full border border-black border-solid px-2">
+            <div class="flex flex-col mt-2.5 w-full">
+                <div class="relative w-full h-96">
+                    <div id="map" class="w-full h-full rounded-2xl border-2 border-black z-10"></div>
+                </div>
+          <div class="flex flex-col justify-center items-center mt-4 w-full max-md:max-w-full">
+            <form *ngIf="searchCompleted" [formGroup]="addressForm" (ngSubmit)="onSubmit()" >
+            <div class="flex flex-wrap gap-4 items-center w-full max-md:max-w-full">
+              <input id="uuid" [value]="uuid" hidden readonly>
+            <div *ngIf="addressForm.get('input1')?.value">
+              <input id="input1" formControlName="input1" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input2')?.value">
+              <input id="input2" formControlName="input2" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input3')?.value">
+                <input id="input3" formControlName="input3" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input4')?.value">
+                <input id="input4" formControlName="input4" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input5')?.value">
+                <input id="input5" formControlName="input5" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input6')?.value">
+                <input id="input6" formControlName="input6" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input7')?.value">
+                <input id="input7" formControlName="input7" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input8')?.value">
+                <input id="input8" formControlName="input8" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input9')?.value">
+                <input id="input9" formControlName="input9" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('input10')?.value">
+                <input id="input10" formControlName="input10" class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <label>Location:</label>
+              <div *ngIf="addressForm.get('latitude')?.value">
+                <input id="latitude" formControlName="latitude" readonly class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+              <div *ngIf="addressForm.get('longitude')?.value">
+                <input for="longitude" id="longitude" formControlName="longitude" readonly class="flex grow shrink self-stretch my-auto w-100 h-7 rounded-md border border-black border-solid bg-zinc-300">
+              </div>
+            </div>
+            <div class="flex gap-10 items-center self-center justify-center mt-14 text-lg font-semibold text-black whitespace-nowrap max-md:mt-10">
+              <button type="button" class="gap-2.5 self-stretch px-7 my-auto rounded-md bg-violet-950/80 hover:bg-violet-950 min-h-[28px] w-[100px] max-md:px-5 text-white">
+                Back
+              </button>
+              <button type="submit" class="gap-2.5 self-stretch px-7 my-auto rounded-md bg-zinc-600 hover:bg-zinc-800 min-h-[28px] w-[150px] max-md:px-5 text-white">
+                Continue
+              </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
 <app-cookiesandprivacy></app-cookiesandprivacy>
 <app-footer></app-footer>

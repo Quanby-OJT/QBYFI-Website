@@ -6,7 +6,7 @@
       <p class="mt-6 text-lg font-semibold text-black max-md:max-w-full">
         Get the internet that you deserve! Let's start with your basic details!
       </p>
-      <form class="self-stretch mt-9 max-md:max-w-full text-white">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()"  class="self-stretch mt-9 max-md:max-w-full text-white">
         <div class="flex gap-5 max-md:flex-col">
           <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
             <div class="flex flex-col grow font-semibold text-white max-md:mt-10">
@@ -14,6 +14,8 @@
               <input
                 type="text"
                 id="firstName"
+                name="firstName"
+                formControlName="firstName"
                 class="px-7 py-5 mx-2.5 max-w-full text-lg rounded-md bg-pink-700 bg-opacity-50 w-[300px] max-md:px-5 placeholder-white"
                 placeholder="First Name"
               />
@@ -26,6 +28,8 @@
                       <input
                         type="tel"
                         id="mobileNumber"
+                        name="mobileNumber"
+                        formControlName="mobileNumber"
                         class="bg-transparent border-none outline-none placeholder-white"
                       />
                     </div>
@@ -40,6 +44,8 @@
               <input
                 type="text"
                 id="lastName"
+                name="lastName"
+                formControlName="lastName"
                 class="px-7 py-5 rounded-md bg-pink-700 bg-opacity-50 max-md:px-5 placeholder-white"
                 placeholder="Last Name"
               />
@@ -47,6 +53,8 @@
               <input
                 type="email"
                 id="email"
+                name="email"
+                formControlName="email"
                 class="px-7 py-5 mt-10 whitespace-nowrap rounded-md bg-pink-700 bg-opacity-50 max-md:px-5 placeholder-white"
                 placeholder="Email"
               />
@@ -58,6 +66,8 @@
             <input
               type="checkbox"
               id="consent"
+              name="consent"
+              formControlName="consent"
               class="flex shrink-0 rounded-md border border-solid bg-zinc-300 bg-opacity-0 border-neutral-500 h-[25px] w-[25px]"
             />
           </div>
@@ -71,10 +81,10 @@
           </label>
         </div>
         <div class="flex gap-5 justify-between mt-14 max-w-full text-base font-semibold text-white whitespace-nowrap w-[263px] max-md:mt-10 ml-52">
-          <button type="button" class="px-10 py-1 rounded-3xl bg-violet-950 bg-opacity-80 max-md:px-5">
+          <button type="button" class="px-10 py-1 rounded-3xl bg-violet-950 hover:bg-violet-600 bg-opacity-80 max-md:px-5">
             Back
           </button>
-          <button type="submit" class="px-6 py-1 rounded-3xl bg-zinc-500 bg-opacity-80 max-md:px-5">
+          <button type="submit" class="px-6 py-1 rounded-3xl bg-zinc-500 hover:bg-zinc-800 bg-opacity-80 max-md:px-5">
             Continue
           </button>
         </div>

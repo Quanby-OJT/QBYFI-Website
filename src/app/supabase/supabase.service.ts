@@ -173,4 +173,70 @@ async fetchData(tableName: string) {
   return data;
 }
 
+
+async submitBasicInfo(basicData: {uuid: string, firstName: string, lastName: string, mobileNumber: string, email: string, consent: string }) {
+  const { data, error } = await supabaseClient
+    .from('subscription')
+    .insert([
+      {
+        uuid: basicData.uuid,
+        firstName: basicData.firstName,
+        lastName: basicData.lastName,
+        mobileNumber: basicData.mobileNumber,
+        email: basicData.email,
+        consent: basicData.consent // Ensure this matches the column name in Supabase
+      }
+    ]);
+
+  if (error) {
+    console.error('Error inserting basic info:', error);
+    return { success: false, message: error.message };
+  }
+
+  return { success: true, data };
+}
+async updateBasicInfo(basicData: {
+  uuid: string,
+  input1: string,
+  input2: string,
+  input3: string,
+  input4: string,
+  input5: string,
+  input6: string,
+  input7: string,
+  input8: string,
+  input9: string,
+  input10: string,
+  latitude: string,
+  longitude: string
+}) {
+  const { uuid, ...dataToUpdate } = basicData;
+
+  // Update record with the matching UUID
+  const { data, error } = await supabaseClient
+    .from('subscription')
+    .update(dataToUpdate)
+    .eq('uuid', uuid);
+
+  if (error) {
+    console.error('Error updating basic info:', error);
+    return { success: false, message: error.message };
+  }
+
+  return { success: true, data };
+}
+
+async fetchSupabaseUUID(uuid: string) {
+  const { data, error } = await supabaseClient
+    .from('subscription')
+    .select('uuid')
+    .eq('uuid', uuid);
+
+  if (error) {
+    console.error('Error fetching UUID:', error);
+    return null;
+  }
+
+  return data;
+}
 }
