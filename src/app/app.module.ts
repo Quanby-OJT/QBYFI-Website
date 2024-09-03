@@ -20,6 +20,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
+import { AvailabilityStep1Component } from './availability-step1/availability-step1.component';
+import { AvailabilityStep2Component } from './availability-step2/availability-step2.component';
+import { AvailabilityStep3Component } from './availability-step3/availability-step3.component';
+import { AvailabilityStep4Component } from './availability-step4/availability-step4.component';
+import { AvailabilityStep5Component } from './availability-step5/availability-step5.component';
+import { CookiesandprivacyComponent } from './cookiesandprivacy/cookiesandprivacy.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+import { PersonalinfoFormComponent } from './personalinfo-form/personalinfo-form.component';
+import { BasicinfoFormComponent } from './basicinfo-form/basicinfo-form.component';
+import { PlansFormComponent } from './plans-form/plans-form.component';
+import { AvailabilityStep1Page2Component } from './availability-step1-page2/availability-step1-page2.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +51,18 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     LoadingComponent,
     HeaderlogComponent,  
     FeedbackComponent,  
-    LocationAvailabilityComponent  
+    LocationAvailabilityComponent,
+    AvailabilityStep1Component,
+    AvailabilityStep2Component,
+    AvailabilityStep3Component,
+    AvailabilityStep4Component,
+    AvailabilityStep5Component,
+    CookiesandprivacyComponent,
+    TermsandconditionsComponent,
+    PersonalinfoFormComponent,
+    BasicinfoFormComponent,
+    PlansFormComponent,
+    AvailabilityStep1Page2Component
   ],
   imports: [
     BrowserModule,

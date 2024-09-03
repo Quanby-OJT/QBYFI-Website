@@ -1,0 +1,26 @@
+<div class="flex justify-center" *ngIf="isVisible">
+  <section class="px-5 pt-2 pb-10 rounded-md border border-white border-solid bg-violet-950 bg-opacity-80 shadow-[0px_4px_4px_rgba(0,0,0,0.6)] w-[1150px] max-md:max-w-full mt-10 mb-20">
+    <div class="flex gap-5 max-md:flex-col">
+      <div class="flex flex-col w-[69%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow font-semibold text-white max-md:mt-10 max-md:max-w-full">
+          <h2 class="text-xl max-md:max-w-full">Cookies & Privacy</h2>
+          <p class="mt-2.5 text-base max-md:max-w-full text-justify">
+            This website uses cookies to ensure you get the best experience on your website. By clicking "Accept all cookies", you agree 
+            <span class="text-pink-700">QBYFI</span> can store cookies on your device and disclose information in accordance with our 
+            <a href="#" class="text-black">Cookies Policy</a>.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col ml-5 w-[31%] max-md:ml-0 max-md:w-full">
+        <div class="flex gap-3 items-start w-full text-xl font-semibold text-white max-md:mt-10">
+          <button  (click)="hideCookiesConsent()" class="flex-auto gap-2.5 self-end px-8 py-4 mt-11 rounded-3xl bg-orange-600 bg-opacity-80 min-h-[60px] max-md:px-5 max-md:mt-10">
+            Accept All Cookies
+          </button>
+          <button (click)="hideCookiesConsent()" name="x">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c9b98ee39e5002f03a485449c5bb02c5b94f91b9ae0c6d0acdd1b95c498f19e?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" class="object-contain shrink-0 self-start aspect-square w-[25px]" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

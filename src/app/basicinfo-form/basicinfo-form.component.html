@@ -1,0 +1,84 @@
+<main class="flex justify-center mt-10">
+    <section class="flex flex-col items-center px-9 pt-16 pb-8 w-full max-w-[750px] rounded-xl border border-black border-solid bg-white bg-opacity-50 max-md:px-5">
+      <h1 class="text-2xl font-semibold text-black text-opacity-90">
+        CHECK AVAILABILITY
+      </h1>
+      <p class="mt-6 text-lg font-semibold text-black max-md:max-w-full">
+        Get the internet that you deserve! Let's start with your basic details!
+      </p>
+      <form class="self-stretch mt-9 max-md:max-w-full text-white">
+        <div class="flex gap-5 max-md:flex-col">
+          <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col grow font-semibold text-white max-md:mt-10">
+              <label for="firstName" class="sr-only">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                class="px-7 py-5 mx-2.5 max-w-full text-lg rounded-md bg-pink-700 bg-opacity-50 w-[300px] max-md:px-5 placeholder-white"
+                placeholder="First Name"
+              />
+              <div class="flex flex-col justify-center p-2.5 mt-8">
+                <div class="flex flex-col max-w-full w-[300px]">
+                  <div class="flex flex-col items-start pt-2 pr-16 pb-3.5 pl-3.5 w-full rounded-md bg-pink-700 bg-opacity-50 max-md:pr-5">
+                    <label for="mobileNumber" class="text-xs">Mobile Number</label>
+                    <div class="flex gap-2.5 text-lg whitespace-nowrap">
+                      <span>+63</span>
+                      <input
+                        type="tel"
+                        id="mobileNumber"
+                        class="bg-transparent border-none outline-none placeholder-white"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col text-lg font-semibold text-white max-md:mt-10">
+              <label for="lastName" class="sr-only">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                class="px-7 py-5 rounded-md bg-pink-700 bg-opacity-50 max-md:px-5 placeholder-white"
+                placeholder="Last Name"
+              />
+              <label for="email" class="sr-only">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="px-7 py-5 mt-10 whitespace-nowrap rounded-md bg-pink-700 bg-opacity-50 max-md:px-5 placeholder-white"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-5 self-start mt-9 ml-3">
+          <div class="flex flex-col my-auto">
+            <input
+              type="checkbox"
+              id="consent"
+              class="flex shrink-0 rounded-md border border-solid bg-zinc-300 bg-opacity-0 border-neutral-500 h-[25px] w-[25px]"
+            />
+          </div>
+          <label for="consent" class="flex-auto text-xs font-semibold text-black max-md:max-w-full">
+            I expressly consent to the processing of my personal information as outlined in the
+            <a href="https://gofiber.ph/onboard/residential/checkAvailability" class="underline" target="_blank" rel="noopener noreferrer">
+              Privacy Policy,
+            </a>
+            <br />
+            which I have read and understood.
+          </label>
+        </div>
+        <div class="flex gap-5 justify-between mt-14 max-w-full text-base font-semibold text-white whitespace-nowrap w-[263px] max-md:mt-10 ml-52">
+          <button type="button" class="px-10 py-1 rounded-3xl bg-violet-950 bg-opacity-80 max-md:px-5">
+            Back
+          </button>
+          <button type="submit" class="px-6 py-1 rounded-3xl bg-zinc-500 bg-opacity-80 max-md:px-5">
+            Continue
+          </button>
+        </div>
+      </form>
+    </section>
+</main>
+  

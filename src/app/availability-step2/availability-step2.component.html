@@ -1,0 +1,55 @@
+<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
+<section class="relative min-h-[286px] shadow-[0px_4px_10px_rgba(0,0,0,0.25)] text-black text-opacity-90 max-md:max-w-full">
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0dbedec2f83699e694c4291a7ade1decf5498aced618397fe75c2098a56cef9?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e"
+      alt=""
+      class="object-cover absolute inset-0 size-full"
+    />
+    <div class="relative flex flex-col justify-center items-center px-16 pt-56 pb-5 text-2xl font-semibold max-md:px-5 max-md:pt-24">
+        <h1>PLEASE COMPLETE YOUR APPLICATION</h1>
+    </div>
+</section>
+
+<div class="flex justify-center mt-10">
+    <nav aria-label="Progress steps" class="flex flex-wrap justify-center items-center self-center max-w-full min-h-[38px] w-[765px]">
+        <div class="flex grow shrink gap-2.5 items-center self-stretch p-1.5 my-auto rounded-2xl bg-violet-950 h-[37px] w-[30px]">
+        <img loading="lazy" src="assets/images/check.png" alt="" class="object-contain self-stretch my-auto aspect-square w-[25px]" />
+        </div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-violet-950 w-[73px]" role="presentation"></div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-violet-950 w-[58px]" role="presentation"></div>
+        <div class="flex grow shrink gap-2.5 items-center self-stretch p-1.5 my-auto rounded-2xl bg-violet-950 h-[37px] w-[30px]">
+        <img loading="lazy" src="assets/images/no.2.png" alt="" class="object-contain self-stretch my-auto aspect-square w-[25px]" />
+        </div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-violet-950 w-[73px]" role="presentation"></div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-neutral-300 w-[58px]" role="presentation"></div>
+        <div class="flex gap-2.5 items-center self-stretch p-1.5 my-auto rounded-2xl bg-neutral-300 h-[37px] min-h-[37px] w-[37px]">
+        <img loading="lazy" src="assets/images/no.3.png" alt="" class="object-contain self-stretch my-auto aspect-square w-[25px]" />
+        </div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-zinc-500 w-[73px]" role="presentation"></div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-neutral-300 w-[58px]" role="presentation"></div>
+        <div class="flex grow shrink gap-2.5 items-center self-stretch p-1.5 my-auto rounded-2xl bg-neutral-300 h-[37px] w-[30px]">
+        <img loading="lazy" src="assets/images/no.4.png" alt="" class="object-contain self-stretch my-auto aspect-square w-[25px]" />
+        </div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-zinc-500 w-[73px]" role="presentation"></div>
+        <div class="grow shrink self-stretch my-auto h-0.5 border-2 border-solid border-neutral-300 w-[58px]" role="presentation"></div>
+        <div class="flex gap-2.5 items-center self-stretch p-1.5 my-auto rounded-2xl bg-neutral-300 h-[37px] min-h-[37px] w-[37px]">
+        <img loading="lazy" src="assets/images/no.5.png" alt="" class="object-contain self-stretch my-auto aspect-square w-[25px]" />
+        </div>
+    </nav>
+</div>
+
+<div class="flex justify-center mt-1">
+    <nav class="flex flex-wrap gap-10 items-center mt-1.5 text-sm font-semibold text-center text-black w-[870px] max-md:max-w-full justify-center" aria-label="Availability Steps">
+        <ng-container *ngFor="let step of steps; let i = index">
+            <section class="flex flex-col grow shrink self-stretch items-center my-auto" [ngClass]="getStepClass(i)">
+                <img [src]="step.imageSrc" [alt]="step.altText" class="object-contain self-center aspect-square w-[35px]" />
+                <h2 class="mt-1.5" [innerHTML]="step.title"></h2>
+            </section>
+        </ng-container>
+    </nav>
+</div>
+
+<app-plans-form></app-plans-form>
+<app-cookiesandprivacy></app-cookiesandprivacy>
+<app-footer></app-footer>

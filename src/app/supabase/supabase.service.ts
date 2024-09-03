@@ -159,4 +159,18 @@ async submitFeedback(feedbackData: { name: string, contact: string, email: strin
 
   return { success: true, data };
 }
+
+async fetchData(tableName: string) {
+  const { data, error } = await supabaseClient
+    .from(tableName)
+    .select('*');
+
+  if (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+
+  return data;
+}
+
 }

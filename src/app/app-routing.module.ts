@@ -13,7 +13,12 @@ import { CustomersupportComponent } from './customersupport/customersupport.comp
 import { LoadingComponent } from './loading/loading.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
-
+import { AvailabilityStep1Component } from './availability-step1/availability-step1.component';
+import { AvailabilityStep2Component } from './availability-step2/availability-step2.component';
+import { AvailabilityStep3Component } from './availability-step3/availability-step3.component';
+import { AvailabilityStep4Component } from './availability-step4/availability-step4.component';
+import { AvailabilityStep5Component } from './availability-step5/availability-step5.component';
+import { AvailabilityStep1Page2Component } from './availability-step1-page2/availability-step1-page2.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -23,13 +28,20 @@ const routes: Routes = [
   { path: 'support-page', component: SupportPageComponent },
   { path: 'networkinfastructure', component: NetworkinfastructureComponent},
   { path: 'datasecurityandprivacy', component: DatasecurityandprivacyComponent},
-  {path: 'technologicalinnovation', component: TechnologicalinnovationComponent},
-  {path: 'broadbandaccess', component: BroadbandaccessComponent},
-  {path: 'regulatorycompliance', component: RegulatorycomplianceComponent},
-  {path: 'customersupport', component: CustomersupportComponent},
-  {path: 'loading', component: LoadingComponent},
-  {path: 'feedback', component: FeedbackComponent},
-  {path: 'location-availability', component: LocationAvailabilityComponent},
+  { path: 'technologicalinnovation', component: TechnologicalinnovationComponent},
+  { path: 'broadbandaccess', component: BroadbandaccessComponent},
+  { path: 'regulatorycompliance', component: RegulatorycomplianceComponent},
+  { path: 'customersupport', component: CustomersupportComponent},
+  { path: 'loading', component: LoadingComponent},
+  { path: 'feedback', component: FeedbackComponent},
+  { path: 'location-availability', component: LocationAvailabilityComponent},
+  { path: 'availability-step1', component: AvailabilityStep1Component },
+  { path: 'availability-step2', component: AvailabilityStep2Component},
+  { path: 'availability-step3', component: AvailabilityStep3Component},
+  { path: 'availability-step4', component: AvailabilityStep4Component},
+  { path: 'availability-step5', component: AvailabilityStep5Component},
+  { path: 'availability-step1-page2', component: AvailabilityStep1Page2Component},
+
   // Define routes for other components 
   { path: '**', redirectTo: '/landing-page' } // Default route
 ];
