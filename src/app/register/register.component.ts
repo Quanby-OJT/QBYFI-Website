@@ -63,7 +63,21 @@ export class RegisterComponent implements OnInit {
         };
   
         if (formData.password !== formData.confirmPassword) {
-          this.showModal('Passwords do not match');
+          this.showModal('Passwords do not match', 'error');
+          return;
+        }
+  
+        // Check if the subscription number is valid
+        const subscriptionExists = await this.supabaseService.getSubscriptionDetails(formData.subnum);
+        if (!subscriptionExists || subscriptionExists.length === 0) {
+          this.showModal('Invalid Subscription Number', 'blue');
+          return;
+        }
+  
+        // Check if the subscription number already exists in accounts
+        const accountExists = await this.supabaseService.checkSubscriptionInAccounts(formData.subnum);
+        if (accountExists) {
+          this.showModal('Subscription Number already registered', 'blue');
           return;
         }
   
@@ -73,25 +87,34 @@ export class RegisterComponent implements OnInit {
         delete formData.confirmPassword;
   
         await this.supabaseService.saveAccountData(formData);
-        this.showModal('Registration successful!');
+        this.showModal('Registration successful!', 'success');
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 2000);
       } catch (error) {
         console.error('Error saving data:', error);
-        this.showModal(`Error saving data: ${(error as Error).message}`);
+        this.showModal(`Error saving data: ${(error as Error).message}`, 'error');
       }
     } else {
-      this.showModal('Please fill out the form correctly');
+      this.showModal('Please fill out the form correctly', 'error');
     }
   }
-
-  showModal(message: string) {
+  
+  showModal(message: string, type: 'success' | 'error' | 'blue') {
     this.modalMessage = message;
     this.isModalVisible = true;
+    document.querySelector('.modal-message')?.classList.remove('text-success', 'text-error', 'text-blue');
+    if (type === 'success') {
+      document.querySelector('.modal-message')?.classList.add('text-success');
+    } else if (type === 'error') {
+      document.querySelector('.modal-message')?.classList.add('text-error');
+    } else if (type === 'blue') {
+      document.querySelector('.modal-message')?.classList.add('text-blue');
+    }
   }
-
+  
   hideModal() {
     this.isModalVisible = false;
   }
+  
 }

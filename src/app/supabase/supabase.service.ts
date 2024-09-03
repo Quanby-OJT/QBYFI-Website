@@ -159,4 +159,22 @@ async submitFeedback(feedbackData: { name: string, contact: string, email: strin
 
   return { success: true, data };
 }
+
+// Check if subscription number exists in accounts
+async checkSubscriptionInAccounts(subnum: string): Promise<boolean> {
+  const { data, error } = await supabaseClient
+    .from('accounts')
+    .select('subnum')
+    .eq('subnum', subnum)
+    .single();
+
+  if (error) {
+    console.error('Error checking subscription number in accounts:', error);
+    return false;
+  }
+
+  return !!data; // Return true if data exists, indicating the subnum is already in use
+}
+
+
 }
