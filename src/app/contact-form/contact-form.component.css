@@ -1,0 +1,18 @@
+:host {
+    display: contents;
+  }
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+

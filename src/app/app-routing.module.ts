@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { NetworkinfastructureComponent } from './networkinfastructure/networkinfastructure.component';
 import { DatasecurityandprivacyComponent } from './datasecurityandprivacy/datasecurityandprivacy.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'contact-page', component: ContactPageComponent},
+  { path: 'contact-form', component: ContactFormComponent},
   { path: 'support-page', component: SupportPageComponent },
   { path: 'networkinfastructure', component: NetworkinfastructureComponent},
   { path: 'datasecurityandprivacy', component: DatasecurityandprivacyComponent},

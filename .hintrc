@@ -3,6 +3,23 @@
     "development"
   ],
   "hints": {
+
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "iframe[loading]"
+        ]
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off",
+        "label": "off"
+      }
+    ],
+
     "axe/name-role-value": [
       "default",
       {
@@ -26,6 +43,7 @@
       }
     ],
     "no-inline-styles": "off",
+    
     "axe/text-alternatives": [
       "default",
       {
@@ -33,6 +51,10 @@
         "image-alt": "off"
       }
     ],
+
+    "disown-opener": "off",
+    "no-inline-styles": "off",
+
     "button-type": "off"
   }
 }

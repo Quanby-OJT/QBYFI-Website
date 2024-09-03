@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+
+import { AvailabilityLayoutComponent } from './availability-layout/availability-layout.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { FormsModule } from '@angular/forms';
+
 import { SupportPageComponent } from './support-page/support-page.component';
 import { BroadbandaccessComponent } from './broadbandaccess/broadbandaccess.component';
 import { CustomersupportComponent } from './customersupport/customersupport.component';
@@ -21,14 +32,20 @@ import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LocationAvailabilityComponent } from './location-availability/location-availability.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LandingPageComponent,
     FooterComponent,
+    LandingPageComponent,
     LoginComponent,
     RegisterComponent,
+
+    AvailabilityLayoutComponent,
+    ContactPageComponent,
+    ContactFormComponent,
+
     ModalComponent,
     SupportPageComponent,
     BroadbandaccessComponent,
@@ -41,15 +58,24 @@ import { LocationAvailabilityComponent } from './location-availability/location-
     HeaderlogComponent,  
     FeedbackComponent,  
     LocationAvailabilityComponent  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    RouterModule,
+    CommonModule,
+    HttpClientModule,
+    FormsModule 
+
     FormsModule,
     ReactiveFormsModule  
+
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

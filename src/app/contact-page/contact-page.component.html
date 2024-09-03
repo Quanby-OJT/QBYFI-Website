@@ -1,0 +1,184 @@
+<app-header class="z-10 fixed top-0 left-0 w-full"></app-header>
+<div class="flex flex-col rounded-none pt-[100px]">
+  <h2
+    class="self-start text-xl mt-5 font-semibold text-indigo-900 text-opacity-80 max-md:max-w-full pl-10"
+  >
+    SUBSCRIBE NOW AND EXPERIENCE THE POWER OF PURE FIBER
+  </h2>
+  <br />
+  <div class="container">
+    <div class="content-box first-box">
+      <div class="content-header">
+        <i class="fas fa-percent icon"></i>
+        <h3>DISCOUNT UP TO 20% FOR NEW MEMBERS</h3>
+      </div>
+      <button>Join Now</button>
+    </div>
+    <div class="content-box">
+      <div class="content-header">
+        <i class="fas fa-cogs icon"></i>
+        <h3>SELF SERVICE APPLICATION</h3>
+      </div>
+      <br />
+      <button>Apply Now</button>
+    </div>
+    <div class="content-box call-button">
+      <div class="content-header">
+        <i class="fas fa-phone-alt icon"></i>
+        <h3>CALL OUR SALES HOTLINE</h3>
+      </div>
+      <br />
+      <button (click)="openCallModal()">Call Now</button>
+    </div>
+    <div class="content-box">
+      <div class="content-header">
+        <i class="fas fa-envelope icon"></i>
+        <h3>WE'LL CONTACT YOU</h3>
+      </div>
+      <br />
+      <button (click)="openLearnMoreModal()">Learn more</button>
+    </div>
+  </div>
+  <div
+    *ngIf="showCallModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-white p-5 rounded-md shadow-lg max-w-sm w-full">
+      <h3 class="text-lg font-semibold mb-3">Call Our Sales Hotline</h3>
+      <p class="mb-4">You can call us at:</p>
+      <ul>
+        <li class="mb-2">
+          <a href="tel:+0524311169" class="text-blue-600 hover:underline"
+            >+052-431-1169</a
+          >
+        </li>
+        <li>
+          <a href="tel:09274786102" class="text-blue-600 hover:underline"
+            >+63 927 478 6102</a
+          >
+        </li>
+      </ul>
+      <button
+        (click)="closeCallModal()"
+        class="mt-4 bg-pink-600 ml-36 text-white py-2 px-4 rounded"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+  <div
+    *ngIf="showLearnMoreModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-white p-5 rounded-md shadow-lg max-w-sm w-full">
+      <h3 class="text-lg font-semibold mb-3">Learn More</h3>
+      <p class="mb-4">
+        To learn more, please navigate to the
+        <strong class="font-extrabold">"GET IN TOUCH"</strong> section, so we
+        can contact you directly.
+      </p>
+      <button
+        (click)="closeLearnMoreModal()"
+        class="mt-4 bg-pink-600 ml-36 text-white py-2 px-4 rounded"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+  <br />
+  <div>
+    <div class="flex justify-between">
+      <section
+        class="flex flex-col items-start px-16 pr-10 py-16 text-base font-semibold text-black rounded-xl ml-10 mt-20 bg-white max-w-[501px] max-md:px-5"
+      >
+        <header class="flex gap-1.5 text-2xl">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a2a80de30b8d17f5359436df9877fc4e31550b67a4532581549785ce7b87672b?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+            alt=""
+            class="object-contain shrink-0 my-auto aspect-square w-[30px]"
+          />
+          <h1 class="basis-auto">QBYFI Main Office</h1>
+        </header>
+        <address class="flex gap-1.5 self-stretch mt-6 not-italic">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f7c2e4c6c370f1519901c2b60d9b1b3b34293891641b072401e5b48dcc97613f?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+            alt=""
+            class="object-contain shrink-0 self-start aspect-square w-[30px]"
+          />
+          <p class="flex-auto w-[359px]">
+            Quanby Solutions, Inc. Landco Business Park, F. Imperial St, Legazpi
+            Port District, Legazpi City, 4500 Albay
+          </p>
+        </address>
+        <div class="flex gap-2.5 mt-3.5 max-md:ml-1.5">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ac4bd995fce1cbb75f568288ab3f4dd7dcaad90406f89a1c78268df7eeeb7aa?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+            alt=""
+            class="object-contain shrink-0 self-start w-5 aspect-square"
+          />
+          <p class="basis-auto">
+            <span class="text-black">+052-431-1169 / 0927 478 6102</span>
+          </p>
+        </div>
+
+        <div class="flex gap-1.5 mt-3 text-2xl whitespace-nowrap items-center">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d0e0c1bdf343b49cf43504ab50a31816e81eb3b6a6fe4f92ebb078cb4bae7d38?placeholderIfAbsent=true&apiKey=6e9054e1e2c94876a613fb2760953dbc"
+            alt="Hours Icon"
+            class="object-contain shrink-0 aspect-square w-[30px]"
+          />
+          <h2 class="text-2xl font-semibold">Hours</h2>
+        </div>
+        <div class="flex flex-col ml-5 max-md:ml-2.5">
+          <select
+            id="hours-dropdown"
+            class="bg-white border rounded-md px-3 py-2 text-lg"
+            (change)="onDropdownChange($event)"
+          >
+            <option
+              *ngFor="let hour of hours"
+              [value]="hour.value"
+              [ngClass]="{ highlighted: hour.value === currentDay }"
+            >
+              {{ hour.label }}
+            </option>
+          </select>
+        </div>
+
+        <a
+          routerLink="/contact-form"
+          class="gap-2.5 self-center p-2.5 mt-14 text-3xl font-bold text-white bg-pink-600 rounded max-md:mt-10 transition-transform transform hover:scale-105 hover:bg-pink-600"
+          >GET IN TOUCH</a
+        >
+      </section>
+      <section
+        class="flex flex-col items-end rounded-3xl max-w-[724px] mx-auto mt-10"
+      >
+        <h2 class="text-2xl font-semibold text-black self-center">Visit Us</h2>
+        <figure
+          class="flex overflow-hidden flex-col mt-3 w-full rounded-none border border-black border-solid max-md:max-w-full h-full"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.2492488922335!2d123.7455191740535!3d13.146671811017821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a1017e4744c56d%3A0x3e7b3ae506209c7e!2sF.%20Imperial%20St%2C%20Legazpi%20City%2C%20Albay!5e0!3m2!1sen!2sph!4v1723520730647!5m2!1sen!2sph"
+            width="600"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </figure>
+      </section>
+    </div>
+  </div>
+  <br />
+  <div>
+    <br />
+    <br />
+    <app-footer></app-footer>
+  </div>
+</div>
