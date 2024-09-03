@@ -3,6 +3,7 @@
     "development"
   ],
   "hints": {
+
     "compat-api/html": [
       "default",
       {
@@ -18,6 +19,31 @@
         "label": "off"
       }
     ],
+
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ],
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
+    "no-inline-styles": "off"
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "iframe[allow]",
+          "iframe[loading]"
+        ]
+      }
+    ],
+    "no-inline-styles": "off",
+    
     "axe/text-alternatives": [
       "default",
       {
@@ -25,8 +51,10 @@
         "image-alt": "off"
       }
     ],
+
     "disown-opener": "off",
     "no-inline-styles": "off",
+
     "button-type": "off"
   }
 }

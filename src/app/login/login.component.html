@@ -1,1 +1,58 @@
-<p>login works!</p>
+<body>
+    <app-headerlog></app-headerlog>
+    <div [class.blur]="isMenuOpen" class="font-['Poppins']">
+      <div *ngIf="errorMessage" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white rounded-lg p-6 w-96 text-center shadow-lg">
+          <h2 class="text-xl font-semibold mb-4 text-red-500">Error</h2>
+          <p>{{ errorMessage }}</p>
+          <button (click)="closeError()" class="mt-6 px-4 py-2 bg-red-500 text-white z-50 rounded-md">Close</button>
+        </div>
+        <span class="animate-ping absolute inline-flex h-full w-full -z-50 rounded-full bg-sky-400 opacity-10"></span>
+      </div>
+  
+      <main class="flex flex-wrap gap-9 items-center justify-between pt-16">
+        <section class="flex flex-col self-stretch my-auto text-2xl text-white rounded-none min-w-[240px] w-[700px] max-md:max-w-full pl-28 pt-3">
+          <div class="flex flex-col px-20 pt-10 pb-9 rounded-3xl border-2 border-white border-solid bg-violet-950 bg-opacity-80 shadow-[5px_5px_4px_rgba(0,0,0,0.6)] max-md:px-5 max-md:max-w-full">
+            <h1 class="text-2xl max-md:max-w-full font-semibold">Sign In</h1>
+            <form (ngSubmit)="onSubmit()" class="flex flex-col mt-8 max-w-full">
+              <div class="mb-8">
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="email" class="focus:outline-none w-full px-6 py-1 text-xl rounded-md bg-rose-100 bg-opacity-80 max-md:px-5 max-md:max-w-full text-black">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="sr-only">Password</label>
+                <div class="flex flex-wrap gap-5 justify-between px-6 py-1 rounded-md bg-rose-100 bg-opacity-80 max-md:px-5 max-md:max-w-full text-black">
+                  <div class="flex items-center w-full bg-transparent">
+                    <input [type]="passwordFieldType" id="password" [(ngModel)]="password" name="password" placeholder="Password" class="focus:outline-none flex-grow text-xl bg-transparent">
+                    <img 
+                      [src]="passwordFieldType === 'password' ? 'assets/images/eye-slash.png' : 'assets/images/eye.png'" 
+                      alt="Toggle Password Visibility" 
+                      class="object-contain shrink-0 aspect-square w-[30px] ml-3 cursor-pointer" 
+                      (click)="togglePasswordVisibility()">
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="mt-0 text-pink-500 max-md:max-w-full text-sm pl-1 pb-0">Forgot Password</a>
+              <button type="submit" class="mt-8 px-16 py-1 bg-rose-100 rounded-md text-zinc-950 max-md:px-5 max-md:max-w-full text-lg font-semibold">Sign In</button>
+            </form>         
+          </div>
+          <a routerLink="/register" class="self-center mt-6 text-lg text-shadow-lg">Register</a>
+        </section>
+        <aside class="flex flex-col items-center self-stretch my-auto rounded-none min-w-[240px] w-[500px] max-md:max-w-full pr-32 ">
+          <img loading="lazy" src="assets/images/Welcome.png" alt="Social media illustration" class="object-contain self-stretch w-full mr-5 aspect-[0.86] max-md:max-w-full fixWel">
+          <h2 class="mt-3 text-base text-black">Social</h2>
+          <div class="flex flex-col justify-center px-3.5 py-1 max-w-full rounded-xl bg-zinc-700 w-[120px]">
+            <div class="flex gap-3.5 items-center">
+              <a href="https://www.facebook.com/61561282452696/" target="_blank"><img loading="lazy" src="assets/images/facebok.png" alt="Social media icon 1" class="hover:scale-110 transition-all drop-shadow-xl object-contain shrink-0 self-stretch my-auto w-10 aspect-square"></a>
+              <a href="https://www.youtube.com/@QuanbySolutions" target="_blank"><img loading="lazy" src="assets/images/youtube.png" alt="Social media icon 2" class="hover:scale-110 transition-all drop-shadow-xl object-contain shrink-0 self-stretch my-auto w-10 aspect-square"></a>
+            </div>
+          </div>
+        </aside>
+      </main>
+      <footer class="absolute bottom-0 flex justify-between flex-wrap text-xs text-black rounded-none pt-8 pl-2 pr-2 fixFoot">
+        <p>Copyright © 2024 QBFYI - All Rights Reserved.</p>
+        <p>Powered by Quanby Solutions, Inc.</p>
+      </footer>
+    </div>
+    </body>
+    

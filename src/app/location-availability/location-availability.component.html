@@ -1,0 +1,80 @@
+<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
+
+<div [class.blur]="isMenuOpen" class="font-['Poppins']">
+    <section class="bg-[url('https://cdn.builder.io/api/v1/image/assets/TEMP/41a838e52ce5f1fa08505a0126fafb892d2fef5fd2b824e4fe8d93e9f6704ea8?placeholderIfAbsent=true&apiKey=f814d152556d45aeb58d44f206a3cbd4')] bg-cover bg-no-repeat w-full flex relative flex-col py-28 pl-[467px] pr-[466px] max-md:px-5 max-md:py-24"> 
+        <div class="flex z-0 flex-col justify-center self-center w-[507px]">
+            <h1 class="text-5xl font-medium text-white max-md:max-w-[700px] max-md:text-4xl text-center">
+              Location Availability
+            </h1>
+            <section class="flex flex-col justify-center p-2.5 max-w-[493px]">
+                <div class="relative w-full">
+                  <form action="">
+                    <input (input)="onSearchInput($event)" type="text" placeholder="Search..." class="w-full h-12 px-4 pr-12 text-sm text-gray-700 bg-white bg-opacity-70 border border-transparent rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                    <button class="absolute top-1 right-0 flex items-center justify-center w-10 h-10 mr-2 text-gray-700 bg-white bg-opacity-70 rounded-full" aria-label="Search">
+                        <i class='bx bx-search-alt text-3xl'></i>
+                    </button>
+                    <div *ngIf="suggestions.length" class="absolute top-12 left-5 bg-white/90 border border-gray-300 w-full md:w-[380px] max-w-md z-10">
+                      <ul>
+                        <li *ngFor="let suggestion of suggestions" class="p-2 cursor-pointer hover:bg-gray-200" (click)="onSuggestionClick(suggestion)">
+                          <div class="flex justify-between items-center">
+                            <p class="text-start">{{ suggestion }}</p>
+                            <p class="text-end text-green-600">is Available</p>
+                          </div> 
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <div class="max-w-full w-full p-10 font-['Poppins'] justify-center">
+      <section class="flex flex-wrap gap-10 justify-between items-start text-black">
+        <article class="flex flex-col justify-center p-2.5 min-w-[240px] w-[408px]">
+          <header>
+            <h1 class="text-3xl">QBYFI Main Office</h1>
+            <p class="mt-1.5 text-base font-[275]">
+              F. Imperial Street, Legazpi Port District, Legazpi City, Albay, Philippines
+            </p>
+          </header>
+          <details class="mt-11 max-w-full text-3xl w-[500px] max-md:mt-10">
+            <summary>Hours</summary>
+            <div class="grid grid-cols-2 gap-x-4 text-base font-medium">
+              <div class="flex flex-col">
+                <p class="fade-in" style="animation-delay: 0.5s;">Mon</p>
+                <p class="fade-in" style="animation-delay: 1s;">Tue</p>
+                <p class="fade-in" style="animation-delay: 1.5s;">Wed</p>
+                <p class="fade-in" style="animation-delay: 2s;">Thu</p>
+                <p class="fade-in" style="animation-delay: 2.5s;">Fri</p>
+                <p class="fade-in" style="animation-delay: 3s;">Sat - Sun</p>
+              </div>
+              <div class="flex flex-col -ml-10">
+                <p class="fade-in" style="animation-delay: 0.5s;">09:00 am - 05:00 pm</p>
+                <p class="fade-in" style="animation-delay: 1s;">09:00 am - 05:00 pm</p>
+                <p class="fade-in" style="animation-delay: 1.5s;">09:00 am - 05:00 pm</p>
+                <p class="fade-in" style="animation-delay: 2s;">09:00 am - 05:00 pm</p>
+                <p class="fade-in" style="animation-delay: 2.5s;">09:00 am - 05:00 pm</p>
+                <p class="fade-in" style="animation-delay: 3s;">Closed</p>
+              </div>
+              <a routerLink="/availability-step1" class="w-28 h-11 relative mt-5">
+                <div class="w-28 h-11 left-0 top-0 absolute bg-pink-700 rounded-2xl"></div>
+                <div class="w-20 h-6 left-[17px] top-[11px] absolute text-center text-white text-xs font-bold font-['Poppins']">
+                  Apply Now!
+                </div>
+              </a>
+            </div>
+          </details>
+        </article>
+        
+        <strong><h2 class="text-gray-900 flex items-center absolute buttom-4 right-[500px] p-2 rounded-md z-10">
+          <img src="assets/images/LOGO.png" class="w-14 mr-2"> Available
+        </h2></strong>
+        <div class="relative w-[700px] h-96">
+          <div id="map" class="w-full h-full rounded-2xl border-2 border-black z-0"></div>
+        </div>
+      </section>
+    </div>
+  
+    <app-footer></app-footer>
+</div>

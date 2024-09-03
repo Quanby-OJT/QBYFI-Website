@@ -1,0 +1,36 @@
+body{
+    background-image: url('/assets/images/BG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+.fixWel{
+  margin-top: -100px;
+}
+.fixFoot{
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Number Arrow */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    mask-type: textfield;
+}
+
+.input-effect {
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.input-effect:focus {
+  transform: scale(1.02);
+}
+
