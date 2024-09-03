@@ -35,8 +35,9 @@ export class RegisterComponent implements OnInit {
   }
 
   passwordMatchValidator(formGroup: FormGroup) {
-    return formGroup.get('password')?.value === formGroup.get('confirmPassword')?.value
-      ? null : { mismatch: true };
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { mismatch: true };
   }
 
   ngOnInit() {
@@ -61,12 +62,13 @@ export class RegisterComponent implements OnInit {
           password: this.signupForm.get('password')?.value,
           confirmPassword: this.signupForm.get('confirmPassword')?.value
         };
-  
+
         if (formData.password !== formData.confirmPassword) {
+          console.log('Passwords do not match'); // Debugging log
           this.showModal('Passwords do not match', 'error');
           return;
         }
-  
+        
         // Check if the subscription number is valid
         const subscriptionExists = await this.supabaseService.getSubscriptionDetails(formData.subnum);
         if (!subscriptionExists || subscriptionExists.length === 0) {
@@ -77,7 +79,7 @@ export class RegisterComponent implements OnInit {
         // Check if the subscription number already exists in accounts
         const accountExists = await this.supabaseService.checkSubscriptionInAccounts(formData.subnum);
         if (accountExists) {
-          this.showModal('Subscription Number already registered', 'blue');
+          this.showModal('Subscription Number already exists', 'blue');
           return;
         }
   
@@ -100,21 +102,38 @@ export class RegisterComponent implements OnInit {
     }
   }
   
-  showModal(message: string, type: 'success' | 'error' | 'blue') {
+  showModal(message: string, type: 'success' | 'error' | 'blue' | 'red') {
     this.modalMessage = message;
     this.isModalVisible = true;
-    document.querySelector('.modal-message')?.classList.remove('text-success', 'text-error', 'text-blue');
-    if (type === 'success') {
-      document.querySelector('.modal-message')?.classList.add('text-success');
-    } else if (type === 'error') {
-      document.querySelector('.modal-message')?.classList.add('text-error');
-    } else if (type === 'blue') {
-      document.querySelector('.modal-message')?.classList.add('text-blue');
+
+    const password = this.signupForm.get('password')?.value;
+    const confirmPassword = this.signupForm.get('confirmPassword')?.value;
+  
+    if (password !== confirmPassword) {
+      this.showModal('Passwords do not match', 'error');
+      return;
     }
+
+    setTimeout(() => {
+      const modalMessageElement = document.querySelector('.modal-message');
+      if (modalMessageElement) {
+        modalMessageElement.classList.remove('text-success', 'text-error', 'text-blue', 'text-red');
+        if (type === 'success') {
+          modalMessageElement.classList.add('text-success');
+        } else if (type === 'error') {
+          modalMessageElement.classList.add('text-error');
+        } else if (type === 'blue') {
+          modalMessageElement.classList.add('text-blue');
+        } else if (type === 'red') {
+          modalMessageElement.classList.add('text-red');
+        }
+      }
+    }, 0);
   }
+  
   
   hideModal() {
     this.isModalVisible = false;
   }
-  
+
 }

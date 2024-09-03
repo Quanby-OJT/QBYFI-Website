@@ -2,8 +2,15 @@
   <div class="modal-content animate__animated animate__fadeInUp">
     <div class="modal-body flex justify-evenly self-center items-center">
       <img src="assets/images/success-icon.gif" alt="Success Icon" class="modal-icon" *ngIf="message.includes('successful')">
-      <img src="assets/images/error-icon.png" alt="Error Icon" class="modal-icon" *ngIf="message.includes('Error')">
-      <p class="modal-message" [ngClass]="{'text-success': message.includes('successful'), 'text-error': message.includes('Please fill out the form correctly')}">
+      <img src="assets/images/error-icon.png" alt="Error Icon" class="modal-icon" *ngIf="message.includes('Error') || message.includes('Invalid Subscription Number')">
+      <img src="assets/images/passwordNM.png" alt="Passwords Do Not Match Icon" class="modal-icon" *ngIf="message.includes('Passwords do not match')">
+      <p class="modal-message" 
+         [ngClass]="{
+           'text-success': message.includes('successful'), 
+           'text-error': message.includes('Please fill out the form correctly'),
+           'text-blue pl-3': message.includes('Invalid Subscription Number'),
+           'text-red': message.includes('Passwords do not match')
+         }">
         {{ message }}
       </p>
     </div>
